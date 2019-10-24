@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>JS应用 | Tang</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="JS应用1. 原生JS1.1 DOM操作节点操作 - 获取节点1.直接获取节点  a.通过标签的id值来获取指定的标签: document.getElementById(id值)b.通过标签名来获取指定的标签:  document.getElementsByTagName(标签名)c.通过类名来获取指定的标签:  document.getElementsByClassName(类名)d.通过nam">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JS应用">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;10&#x2F;23&#x2F;JS%E5%BA%94%E7%94%A8&#x2F;index.html">
+<meta property="og:site_name" content="Tang">
+<meta property="og:description" content="JS应用1. 原生JS1.1 DOM操作节点操作 - 获取节点1.直接获取节点  a.通过标签的id值来获取指定的标签: document.getElementById(id值)b.通过标签名来获取指定的标签:  document.getElementsByTagName(标签名)c.通过类名来获取指定的标签:  document.getElementsByClassName(类名)d.通过nam">
+<meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2019-10-17T09:50:13.969Z">
+<meta name="twitter:card" content="summary">
+  
+  <link rel="stylesheet" href="//cdn.bootcss.com/highlight.js/9.2.0/styles/github.min.css">
+  <script src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', (event) => {
+      document.querySelectorAll('pre code').forEach((block) => {
+        hljs.highlightBlock(block);
+      });
+    });
+  </script>
+  <link rel="stylesheet" href="/css/index.css">
+</head>
+
+<body style="
+
+
+  background-color: #eff0f6
+
+">
+  <div id="container">
+    <nav id="nav">
+  <header class="header">
+    <a href="/" class="title">Clover Tuan</a>
+  </header>
+  <div class="ctnWrap">
+    <div class="icons">
+      
+        
+          
+            <a href="https://dribbble.com/clovertuan" target="_blank" class="nav-icn iconfont icon-dribbble"></a>
+          
+        
+          
+            <a href="https://www.behance.net/clovertuan" target="_blank" class="nav-icn iconfont icon-behance"></a>
+          
+        
+          
+            <a href="http://clovertuan.lofter.com/" target="_blank" class="nav-icn iconfont icon-lofter"></a>
+          
+        
+          
+            <a href="https://www.instagram.com/clovertuan/" target="_blank" class="nav-icn iconfont icon-instagram"></a>
+          
+        
+          
+            <a href="https://github.com/cloverTuan" target="_blank" class="nav-icn iconfont icon-github"></a>
+          
+        
+      
+    </div>
+    <div class="menu">
+      
+        
+            <a href="/" class="nav-menu ">HOME</a>
+          
+        
+            <a href="/archives" class="nav-menu ">ARCHIVE</a>
+          
+        
+            <a href="/about" class="nav-menu ">ABOUT</a>
+          
+        
+      
+    </div>
+  </div>
+</nav>
+    <div id="main"><section class="article">
+  <h2 class="title">JS应用</h2>
+  <p class="sub">Oct 23, 2019</p>
+  <article class="content">
+    <h1 id="JS应用"><a href="#JS应用" class="headerlink" title="JS应用"></a>JS应用</h1><h2 id="1-原生JS"><a href="#1-原生JS" class="headerlink" title="1. 原生JS"></a>1. 原生JS</h2><h3 id="1-1-DOM操作"><a href="#1-1-DOM操作" class="headerlink" title="1.1 DOM操作"></a>1.1 DOM操作</h3><h4 id="节点操作-获取节点"><a href="#节点操作-获取节点" class="headerlink" title="节点操作 - 获取节点"></a>节点操作 - 获取节点</h4><p><strong>1.直接获取节点</strong></p>
+<blockquote>
+<p>a.通过标签的id值来获取指定的标签: document.getElementById(id值)<br>b.通过标签名来获取指定的标签:  document.getElementsByTagName(标签名)<br>c.通过类名来获取指定的标签:  document.getElementsByClassName(类名)<br>d.通过name属性的值来获取指定的标签(了解):  document.getElementsByName(‘username’)</p>
+</blockquote>
+<p> <strong>2.获取父节点</strong>  </p>
+<blockquote>
+<p>a.获取子节点对应的父节点:  子节点.parentElement  </p>
+</blockquote>
+<p><strong>3.获取子节点</strong>  </p>
+<blockquote>
+<p>a.获取所有的子节点:  父节点.children  / 父节点.childNodes<br>b.获取第一个子节点:  父节点.firstElementChild<br>c.获取最后一个子节点: 父节点.lastElementChild </p>
+</blockquote>
+<h3 id="节点操作-创建添加和删除"><a href="#节点操作-创建添加和删除" class="headerlink" title="节点操作 - 创建添加和删除"></a>节点操作 - 创建添加和删除</h3><p>1.创建节点:  document.createElement(标签名)</p>
+<p>2.添加节点:  父节点.appendChild(需要添加的节点)  /  父节点.insertBefore(新节点, 指定节点)</p>
+<p>3.删除节点:  父节点.removeChild(子节点)  /  节点.remove()</p>
+<p>4.拷贝节点:  节点.cloneNode()  /  节点.cloneNode(true)  </p>
+<p>5.替换节点:  父节点.replaceChild(新节点, 子节点)</p>
+<p>练习: 删除广告、动态添加和删除</p>
+<p>作业: 成都汽车限号查询</p>
+<h3 id="1-2-BOM操作"><a href="#1-2-BOM操作" class="headerlink" title="1.2 BOM操作"></a>1.2 BOM操作</h3><p><strong>1.window基本操作</strong>  </p>
+<p>a.打开新窗口：window.open(网页地址) / window.open(‘’,’’,’width=x?,height=y?’)  </p>
+<p>b.关闭窗口:  window.close()  </p>
+<p>c.移动当前窗口: 窗口对象.moveTo(x坐标, y坐标)  </p>
+<p>d.获取浏览器的宽度和高度:  window.innerWidth, window.innerHeight / window.outerWidth, window.outerHeight  </p>
+<p><strong>2.弹框</strong></p>
+<p>a.  alert(提示信息) - 弹出提示信息(带确定按钮)</p>
+<p>b. confirm(提示信息) - 弹出提示信息(带确定和取消按钮),返回值是布尔值，取消-false, 确定-true</p>
+<p>c. prompt(提示信息,输入框中的默认值) - 弹出一个带输入框和取消，确定按钮的提示框; 点取消，返回值是null;点确定返回值是输入框中输入的内容  </p>
+<p><strong>3.定时</strong>  </p>
+<p>a.  setInterval(函数,时间)  /  clearInterval(定时对象)  </p>
+<p>b. setTimeout(函数,时间) / clearTimeout(定时对象)  </p>
+<h3 id="1-3-事件"><a href="#1-3-事件" class="headerlink" title="1.3 事件"></a>1.3 事件</h3><p><strong>1.事件绑定</strong></p>
+<p>a.  在标签内部给事件源的事件属性赋值  </p>
+<p>b. 通过节点绑定事件1:  标签节点.事件属性 = 函数  </p>
+<p>c. 通过节点绑定事件2:  标签节点.事件属性 = 匿名函数  </p>
+<p>d. 通过节点绑定事件3:  节点.addEventListener(事件名,函数)  </p>
+<p><strong>2.常见事件类型</strong>  </p>
+<p>a..onload - 页面加载完成对应的事件(标签加载成功)</p>
+<p>window.onload = 函数</p>
+<p>b.鼠标事件:  onclick  / onmouseover / onmouseout</p>
+<p>c.键盘事件:  onkeypress / onkeydown / onkeyup</p>
+<p>d.输入框内容改变:  ‘onchange’ - 输入框输入状态结束</p>
+<p><strong>3.事件捕获</strong></p>
+<p>事件对象.stopPropagation()</p>
+<h2 id="2-jQuery"><a href="#2-jQuery" class="headerlink" title="2. jQuery"></a>2. jQuery</h2><h3 id="2-1-基本操作"><a href="#2-1-基本操作" class="headerlink" title="2.1 基本操作"></a>2.1 基本操作</h3><p>===========节点=============</p>
+<p>1.获取节点</p>
+<p>$(选择器)   </p>
+<p>console.log($(‘#div2&gt;a’))       //和后代选择器效果一样</p>
+<p>console.log($(‘p + a’))           //获取紧跟着p标签的a标签</p>
+<p>console.log($(‘#p1~*’))           //获取和id是p1的标签的后面的所有同级标签</p>
+<p>console.log($(‘div:first’))       //第一个div标签</p>
+<p>console.log($(‘p:last’))             //最后一个p标签</p>
+<p>console.log($(‘div *:first-child’))           //找到所有div标签中的第一个子标签   </p>
+<p>2.创建标签  </p>
+<p>$(‘HTML标签语法’) ,例如：$(‘<div style="color: red">我是div</div>‘)  </p>
+<p>3.添加标签  </p>
+<p>父标签.append(子标签) - 在父标签的最后添加子标签</p>
+<p>父标签.prepend(子标签) - 在父标签的最前面添加子标签</p>
+<p>标签.before()</p>
+<p>标签.after()  </p>
+<p>4.删除标签</p>
+<p>标签.empty() - 清空指定标签</p>
+<p>标签.remove() - 删除指定标签  </p>
+<p>==============属性================</p>
+<p>1.普通属性的获取和修改 - 除了innerHTML(html),    innerText(text)以及value(val)</p>
+<p>标签.attr(属性名)  - 获取指定的属性值</p>
+<p>标签.attr(属性名, 值) - 修改/添加属性  </p>
+<p>//2.标签内容属性<br>// 双标签.html()<br>// 双标签.text()<br>// 单标签.val()<br>//注意：上面的函数不传参就是获取值，传参就是修改值</p>
+<p>2.class属性 - HTML中一个标签可以有多个class值，多个值用空格隔开</p>
+<p>标签.addClass(class值) - 给标签添加class值</p>
+<p>标签.removeClass(class值) - 移除标签中指定的class值  </p>
+<p>3.样式属性  </p>
+<p>a.获取属性值</p>
+<p>标签.css(样式属性名) - 获取样式属性值 </p>
+<p>b.修改和添加</p>
+<p>标签.css(样式属性名, 值) - 修改属性值</p>
+<p>标签.css({属性名:值, 属性名2:值2…}) - 同时设置多个属性</p>
+<p>==============事件=============</p>
+<p>1.标签.on(事件名,回调函数) - 给标签绑定指定的事件（和js中的addEventLinsenner一样）</p>
+<p>事件名不需要要on</p>
+<p>2.父标签.on(事件名,选择器,回调函数) - 在父标签上添加事件，传递给选择器对应的子标签</p>
+<p>选择器 - 前面标签的后代标签(子标签/子标签的子标签)</p>
+<h3 id="2-2-Ajax"><a href="#2-2-Ajax" class="headerlink" title="2.2 Ajax"></a>2.2 Ajax</h3><p>语法：</p>
+<p>​    1.get请求</p>
+<p>​    $.get(url,data,回调函数,返回数据类型)  </p>
+<p>​    - url：请求地址（字符串）</p>
+<p>​    - data：参数列表 (对象)</p>
+<p>​    - 回调函数：请求成功后自动调用的函数(函数名，匿名函数)</p>
+<p>​    - 返回数据类型：请求到的数据的格式(字符串，例如：’json’)  </p>
+<p>​    </p>
+<p>​    2.post请求</p>
+<p>​    $.post(url,data,回调函数,返回数据类型)  </p>
+<p>​    - url：请求地址（字符串）</p>
+<p>​    - data：参数列表 (对象)</p>
+<p>​    - 回调函数：请求成功后自动调用的函数(函数名，匿名函数)</p>
+<p>​    - 返回数据类型：请求到的数据的格式(字符串，例如：’json’)  </p>
+<p>​    </p>
+<p>​    3.ajax</p>
+<p>​    $.ajax({</p>
+<p>​        ‘url’:请求地址,</p>
+<p>​        ‘data’:{参数名1:值1, 参数名2:值2}，</p>
+<p>​        ‘type’:’get’/‘post’,</p>
+<p>​        ‘dataType’:返回数据类型,</p>
+<p>​        ‘success’:function(结果){</p>
+<p>​            请求成功后要做的事情</p>
+<p>​        }</p>
+<p>​    })</p>
+<h2 id="3-Vue-js"><a href="#3-Vue-js" class="headerlink" title="3. Vue.js"></a>3. Vue.js</h2><p>var 变量名 = new Vue({</p>
+<p>​    el: 选择器,</p>
+<p>​    data:数据对象,</p>
+<p>​    methods:方法对象，</p>
+<p>​    computed:计算属性</p>
+<p>})</p>
+<ol>
+<li>设置标签内容: </li>
+<li>设置标签属性值:  v-bind:属性=’Vue属性名’</li>
+<li>if语句：v-if=’Vue属性名’</li>
+<li>循环结构：v-for=’变量 in 数组属性’</li>
+<li>绑定事件：v-on:事件名=’函数名’  </li>
+<li>v-model可是实现  C的内容和属性双向绑定</li>
+</ol>
+
+  </article>
+  <footer class="f-cf">
+    
+    
+      <a href="/2019/10/23/%E5%B8%B8%E7%94%A8Linux%E7%B3%BB%E7%BB%9F%E6%8C%87%E4%BB%A4/" class="link f-fr">常用Linux系统指令⟶</a>
+    
+  </footer>
+</section></div>
+    <footer id="footer" class="f-cf">
+  d.guangying@foxmail.com
+  
+    
+      
+        · <a href="https://dribbble.com/clovertuan" target="_blank" class="nav-icn">Dribbble</a>
+      
+    
+      
+        · <a href="https://www.behance.net/clovertuan" target="_blank" class="nav-icn">Behance</a>
+      
+    
+      
+        · <a href="http://clovertuan.lofter.com/" target="_blank" class="nav-icn">Lofter</a>
+      
+    
+      
+        · <a href="https://www.instagram.com/clovertuan/" target="_blank" class="nav-icn">Instagram</a>
+      
+    
+      
+        · <a href="https://github.com/cloverTuan" target="_blank" class="nav-icn">GitHub</a>
+      
+    
+  
+  <span class="copyright">All rights reserved @Clover Tuan</span>
+</footer>
+  </div>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618},"display":{"superSample":2,"width":200,"height":400,"position":"right","hOffset":0,"vOffset":-20},"mobile":{"show":false},"react":{"opacity":0.7},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
