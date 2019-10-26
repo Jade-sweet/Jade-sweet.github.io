@@ -8,15 +8,18 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>标签 - 想和你一起看下雨</title>
+<title>20 多线程 - 想和你一起看下雨</title>
 
 
-    <meta property="og:type" content="website">
-<meta property="og:title" content="想和你一起看下雨">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;tags&#x2F;index.html">
+    <meta name="description" content="一个正在运行的程序就是一个进程，一个进程最少有一个线程，称为主线程，一个线程同时只能处理一个任务，当想同时多任务进行时，需要用到多线程方法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="20 多线程">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;10&#x2F;26&#x2F;20%20%E5%A4%9A%E7%BA%BF%E7%A8%8B&#x2F;index.html">
 <meta property="og:site_name" content="想和你一起看下雨">
+<meta property="og:description" content="一个正在运行的程序就是一个进程，一个进程最少有一个线程，称为主线程，一个线程同时只能处理一个任务，当想同时多任务进行时，需要用到多线程方法">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;og_image.png">
+<meta property="og:updated_time" content="2019-10-26T02:57:31.373Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;og_image.png">
 
@@ -76,7 +79,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo_panda.png" alt="想和你一起看下雨" height="28">
+                <img src="/images/logo_panda.png" alt="20 多线程" height="28">
             
             </a>
         </div>
@@ -93,7 +96,7 @@
                 <a class="navbar-item"
                 href="/categories">分类</a>
                 
-                <a class="navbar-item is-active"
+                <a class="navbar-item"
                 href="/tags">标签</a>
                 
                 <a class="navbar-item"
@@ -125,18 +128,161 @@
     <section class="section">
         <div class="container">
             <div class="columns">
-                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card widget">
-    <div class="card-content">
-        <div class="menu">
-            <h3 class="menu-label">
-                标签
-            </h3>
-            <div class="field is-grouped is-grouped-multiline">
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main">
+<div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-10-26T02:33:56.475Z">2019-10-26</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/python%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80-%E5%A4%9A%E7%BA%BF%E7%A8%8B/">python语言基础-多线程</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    4 分钟 读完 (大约 645 个字)
+                </span>
+                
                 
             </div>
         </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                20 多线程
+            
+        </h1>
+        <div class="content">
+            <p>一个正在运行的程序就是一个进程，一个进程最少有一个线程，称为主线程，一个线程同时只能处理一个任务，当想同时多任务进行时，需要用到多线程方法</p>
+<a id="more"></a>
+
+<p>进程：系统中正在运行的程序；每个进程都是独立的<br>线程：一个进程执行任务必须至少有一条线程<br>一个进程（程序）的所有任务都在线程中执行<br>一个线程中任务的执行是串行的，同一时间内，一个线程只能执行一个任务</p>
+<p>多线程：一个进程有多条线程，每条线程可以并行，同一时间执行不同的任务<br><strong>多线程原理</strong>：（利用CPU空闲时间去快速调度）<br>···同一时间，CPU只能处理一条线程，只有一条线程在工作（执行）<br>···多线程并发（同时）执行，其实是CPU快速的在多条线程间“调度”<br>···CPU调度线程的速度足够快，就造成了多线程并发执行的假象</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">默认情况下一个程序都有一个线程，这个线程叫做主线程；主线程以外的线程叫子线程</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">threading模块提供了python中相关的多线程方法和类；继承Thread类的对象就是线程对象</span><br></pre></td></tr></table></figure>
+
+<p>###设置多线程第一种：========</p>
+<p>#####1）导入threading模块</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> threading</span><br></pre></td></tr></table></figure>
+
+<p>#####2) 声明一个实现线程功能的函数</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-function"><span class="hljs-keyword">def</span> 函数名<span class="hljs-params">(参数)</span>:</span></span><br><span class="line">    实现函数功能的代码</span><br></pre></td></tr></table></figure>
+
+<p>#####3）创建线程对象</p>
+<p><strong><code>threading.Thread(target,args)</code></strong><br>​    必须用关键字传参<br>​    target —— 函数，需要在子线程调用的函数<br>​    args —— 元组，接收子线程中被调用函数的实参（调用函数无参时，args不用赋值）</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">线程对象 = threading.Thread(target=实现线程功能的函数, args=(函数的参数))</span><br></pre></td></tr></table></figure>
+
+<p>#####4）启动线程</p>
+<p><strong><code>线程对象.start（）</code></strong></p>
+<p>###设置多线程第二种：=========</p>
+<p>#####1）导入threading模块</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-keyword">import</span> threading</span><br></pre></td></tr></table></figure>
+
+<p>#####2）通过创建Thread的子类对象来创建线程</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> 类名<span class="hljs-params">(Thread)</span>:</span></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">__init__</span><span class="hljs-params">(self, 参数<span class="hljs-number">1</span>，参数<span class="hljs-number">2.</span>..)</span>:</span></span><br><span class="line">        super().__init__()  <span class="hljs-comment"># 获取父类对象属性</span></span><br><span class="line">        self.参数<span class="hljs-number">1</span> = 参数<span class="hljs-number">1</span></span><br><span class="line">        ......</span><br><span class="line"></span><br><span class="line">    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">run</span><span class="hljs-params">(self)</span> -&gt; <span class="hljs-keyword">None</span>:</span>  <span class="hljs-comment"># -&gt; None 起提示返回值的作用</span></span><br><span class="line">        实现线程功能的代码</span><br></pre></td></tr></table></figure>
+
+<p>#####3）创建子类对象</p>
+<p>子类对象（线程对象） = 类名(参数)</p>
+<p>#####4)启动线程</p>
+<p>子类对象.start()</p>
+
+        </div>
+        
+        
+        
+        <div class="social-share"></div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/css/share.min.css">
+<script src="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/js/social-share.min.js"></script>
+        
     </div>
-</div></div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3>
+        <div class="buttons is-centered">
+            
+                
+<a class="button is-info donate">
+    <span class="icon is-small">
+        <i class="fab fa-alipay"></i>
+    </span>
+    <span>支付宝</span>
+    <div class="qrcode"><img src="/images/alipay.jpg" alt="支付宝"></div>
+</a>
+
+                
+                
+<a class="button is-success donate">
+    <span class="icon is-small">
+        <i class="fab fa-weixin"></i>
+    </span>
+    <span>微信</span>
+    <div class="qrcode"><img src="/images/weixin.png" alt="微信"></div>
+</a>
+
+                
+        </div>
+    </div>
+</div>
+
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/2019/10/26/21%20socket%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">21 socket网络编程</span>
+            </a>
+        </div>
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2019/10/26/19%20%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">
+                <span class="level-item">19 正则表达式</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="title is-5 has-text-weight-normal">评论</h3>
+        
+<script>
+    var disqus_config = function () {
+        this.page.url = 'http://yoursite.com/2019/10/26/20%20%E5%A4%9A%E7%BA%BF%E7%A8%8B/';
+        this.page.identifier = '2019/10/26/20 多线程/';
+    };
+    (function() {
+        var d = document, s = d.createElement('script');  
+        s.src = '//' + '快来一起讨论吧~' + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+<div id="disqus_thread">
+    
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+    </div>
+</div>
+</div>
                 
 
 
@@ -697,7 +843,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo_panda.png" alt="想和你一起看下雨" height="28">
+                    <img src="/images/logo_panda.png" alt="20 多线程" height="28">
                 
                 </a>
                 <p class="is-size-7">

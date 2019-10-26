@@ -8,15 +8,18 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>标签 - 想和你一起看下雨</title>
+<title>02 python基础语法 - 想和你一起看下雨</title>
 
 
-    <meta property="og:type" content="website">
-<meta property="og:title" content="想和你一起看下雨">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;tags&#x2F;index.html">
+    <meta name="description" content="python是一门简单的解释型语言，这里讲大概的基础语法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="02 python基础语法">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;10&#x2F;26&#x2F;02%20python%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95&#x2F;index.html">
 <meta property="og:site_name" content="想和你一起看下雨">
+<meta property="og:description" content="python是一门简单的解释型语言，这里讲大概的基础语法">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;og_image.png">
+<meta property="og:updated_time" content="2019-10-26T02:35:35.255Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;og_image.png">
 
@@ -76,7 +79,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo_panda.png" alt="想和你一起看下雨" height="28">
+                <img src="/images/logo_panda.png" alt="02 python基础语法" height="28">
             
             </a>
         </div>
@@ -93,7 +96,7 @@
                 <a class="navbar-item"
                 href="/categories">分类</a>
                 
-                <a class="navbar-item is-active"
+                <a class="navbar-item"
                 href="/tags">标签</a>
                 
                 <a class="navbar-item"
@@ -125,18 +128,276 @@
     <section class="section">
         <div class="container">
             <div class="columns">
-                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card widget">
-    <div class="card-content">
-        <div class="menu">
-            <h3 class="menu-label">
-                标签
-            </h3>
-            <div class="field is-grouped is-grouped-multiline">
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main">
+<div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-10-26T02:33:56.401Z">2019-10-26</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/python%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/">python语言基础</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    11 分钟 读完 (大约 1628 个字)
+                </span>
+                
                 
             </div>
         </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                02 python基础语法
+            
+        </h1>
+        <div class="content">
+            <p>python是一门简单的解释型语言，这里讲大概的基础语法</p>
+<a id="more"></a>
+
+<h3 id="1-python基础语法"><a href="#1-python基础语法" class="headerlink" title="1.python基础语法"></a>1.python基础语法</h3><h4 id="python-的运行（无开发工具）：可在终端输入-python-py文件路径"><a href="#python-的运行（无开发工具）：可在终端输入-python-py文件路径" class="headerlink" title="python 的运行（无开发工具）：可在终端输入 python py文件路径"></a>python 的运行<u>（无开发工具）</u>：可在终端输入 python py文件路径</h4><h4 id="pycharm的使用快捷键："><a href="#pycharm的使用快捷键：" class="headerlink" title="pycharm的使用快捷键："></a>pycharm的使用快捷键：</h4><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">①Ctrl + S          --保存</span><br><span class="line">②Ctrl + /          --添加注释或取消注释</span><br><span class="line">③Ctrl + A          --全选</span><br><span class="line">④Ctrl + C          --复制</span><br><span class="line">⑤Ctrl + V          --粘贴</span><br><span class="line">⑥Ctrl + X          --剪切</span><br><span class="line">⑦Ctrl + Shift + Z  --反撤销</span><br><span class="line">⑧Ctrl + Z          --撤销</span><br><span class="line">⑨alt + mouse       --多光标</span><br><span class="line">⑩shfit + mouse     --连续选择多行</span><br></pre></td></tr></table></figure>
+<h4 id="第一行代码"><a href="#第一行代码" class="headerlink" title="第一行代码"></a>第一行代码</h4><h5 id="print是python中的打印函数，功能是将括号中的内容在控制台打印出来"><a href="#print是python中的打印函数，功能是将括号中的内容在控制台打印出来" class="headerlink" title="print是python中的打印函数，功能是将括号中的内容在控制台打印出来"></a>print是python中的打印函数，功能是将括号中的内容在控制台打印出来</h5><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(&apos;Hello World&apos;)</span><br></pre></td></tr></table></figure>
+<h4 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h4><h5 id="注释：在代码中不参与编译（不影响程序的功能），对代码进行注解和说明。"><a href="#注释：在代码中不参与编译（不影响程序的功能），对代码进行注解和说明。" class="headerlink" title="注释：在代码中不参与编译（不影响程序的功能），对代码进行注解和说明。"></a>注释：在代码中<u>不参与编译</u>（不影响程序的功能），对代码进行注解和说明。</h5><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">①单行注释：在注释文字之前加一个 #</span><br><span class="line">②多行注释：用三个&quot;或三个&apos;括起来的注释文字</span><br></pre></td></tr></table></figure>
+<h5 id="语句：每一条代码就是一条语句"><a href="#语句：每一条代码就是一条语句" class="headerlink" title="语句：每一条代码就是一条语句"></a>语句：每一条代码就是一条语句</h5><p>Python代码的<strong>规范参照</strong> <a href="[https://www.jianshu.com/p/ffcc66bab3ce](https://www.jianshu.com/p/ffcc66bab3ce)">PEP8规范</a></p>
+<p>python对语句的要求，一般<u>一条语句占一行</u>，一条语句结束时不用写分号; 除非一行有多条语句，则必须加分号;来隔开。</p>
+<p>如果一条语句的长度超过规范，则在换行字符前加 \ 即可换行显示</p>
+<h5 id="缩进"><a href="#缩进" class="headerlink" title="缩进"></a>缩进</h5><p>四个空格代表一级缩进</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="hljs-number">1</span></span><br><span class="line"><span class="hljs-keyword">if</span> a <span class="hljs-keyword">is</span> <span class="hljs-number">1</span>:</span><br><span class="line">    print(<span class="hljs-string">'a = 1'</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">IndentationError : unexpected indent --表示代码缩进错误（多加缩进）</span><br><span class="line"></span><br><span class="line">IndentationError: expected an indented block --表示代码缩进错误（少加缩进）</span><br></pre></td></tr></table></figure>
+<h5 id="标识符"><a href="#标识符" class="headerlink" title="标识符"></a>标识符</h5><p>标识符是在程序中给变量、函数或者类、对象等命名用的。<br>①要求：由字母、数字、下划线组成，且不能以数字开头。<br>②关键字：在python中具有特殊功能和特殊意义的标识符就是关键字。  关键字只能用为本身功能</p>
+<table>
+<thead>
+<tr>
+<th align="center"></th>
+<th align="center"></th>
+<th align="center"><a href="[https://www.jianshu.com/p/191be820bd98](https://www.jianshu.com/p/191be820bd98">Python关键字一览表</a></th>
+<th align="center"></th>
+<th align="center"></th>
+<th align="center"></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">False</td>
+<td align="center">None</td>
+<td align="center">True</td>
+<td align="center">and</td>
+<td align="center">as</td>
+<td align="center">assert</td>
+</tr>
+<tr>
+<td align="center">break</td>
+<td align="center">class</td>
+<td align="center">continue</td>
+<td align="center">def</td>
+<td align="center">elif</td>
+<td align="center">or</td>
+</tr>
+<tr>
+<td align="center">while</td>
+<td align="center">in</td>
+<td align="center">for</td>
+<td align="center">is</td>
+<td align="center">lambda</td>
+<td align="center">not</td>
+</tr>
+<tr>
+<td align="center">global</td>
+<td align="center">nonlocal</td>
+<td align="center">raise</td>
+<td align="center">from</td>
+<td align="center">yield</td>
+<td align="center">finally</td>
+</tr>
+<tr>
+<td align="center">with</td>
+<td align="center">pass</td>
+<td align="center">del</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">##### 常用数据</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">①数字数据：用来表示大小、多少的数据；分为整形（整数）和浮点型（小数）。</span><br><span class="line"></span><br><span class="line">②文本数据：用来表示文本的数据；对应的数据类型是字符串。</span><br><span class="line"></span><br><span class="line">③布尔值：只有True或者False，分别表示真（肯定）或假（否定）</span><br><span class="line"></span><br><span class="line">④复数型：形如3+5j，跟数学上的复数表示一样，唯一不同的是虚部的i换成了j。</span><br><span class="line"></span><br><span class="line">⑤其他数据：列表，字典，集合，元祖，函数，自定义类...</span><br></pre></td></tr></table></figure>
+<h5 id="输入和输出函数"><a href="#输入和输出函数" class="headerlink" title="输入和输出函数"></a>输入和输出函数</h5><p>①输出函数：print（内容）</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="hljs-number">800</span>)</span><br><span class="line">print(<span class="hljs-string">' hello world '</span>)</span><br><span class="line">print(<span class="hljs-literal">True</span>)</span><br><span class="line">a = <span class="hljs-number">1</span></span><br><span class="line">print(a)</span><br><span class="line">print(<span class="hljs-number">800</span>, <span class="hljs-number">900</span>, <span class="hljs-number">102.2</span>, <span class="hljs-string">'internet'</span>)</span><br><span class="line"><span class="hljs-comment"># print默认打印完一行后会自动换行，但是可以设置end的值来定制内容结束的打印</span></span><br><span class="line"><span class="hljs-comment"># print(需要打印的内容，end = '结束后打印的内容')</span></span><br><span class="line">print(<span class="hljs-number">800</span>, end = <span class="hljs-string">' '</span>) <span class="hljs-comment"># 打印后不换行</span></span><br><span class="line"><span class="hljs-comment"># sep的使用 ''中写分隔符号</span></span><br><span class="line">print(<span class="hljs-number">800</span>,<span class="hljs-number">900</span>,<span class="hljs-number">100</span>,sep = <span class="hljs-string">' '</span>)</span><br></pre></td></tr></table></figure>
+<p>②输入函数 input()</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># input 会从键盘获取输入值，并返回值，返回值为字符串文本数据</span><br><span class="line">str = input(&apos;请输入一段字符&apos;)</span><br><span class="line">print(str)</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="2-进制"><a href="#2-进制" class="headerlink" title="2.进制"></a>2.进制</h3><p>1.什么是进制？ 一个数值的不同书写方式</p>
+<p>2.常用进制 十进制，二进制，八进制，十六进制</p>
+<p>①十进制 写法：110</p>
+<table>
+<thead>
+<tr>
+<th align="center">基数</th>
+<th align="center">0,1,2,3,4,5,6,7,8,9</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">进位</td>
+<td align="center">逢10进1</td>
+</tr>
+<tr>
+<td align="center">位权</td>
+<td align="center">110 = 1*10^2  + 1*10^1 + 0*10^0</td>
+</tr>
+</tbody></table>
+<p>②二进制  写法：0b110或者0B110<br>|  基数  |               0,1               |<br>| :–: | :—————————–: |<br>|  进位  |              逢2进1               |<br>|  位权  | 110 = 1*2^2  + 1*2^1 + 0*2^0 |</p>
+<p>③八进制  写法：0o110或者0O110</p>
+<table>
+<thead>
+<tr>
+<th align="center">基数</th>
+<th align="center">0,1,2,3,4,5,6,7</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">进位</td>
+<td align="center">逢8进1</td>
+</tr>
+<tr>
+<td align="center">位权</td>
+<td align="center">110 = 1*8^2  + 1*8^1 + 0*8^0</td>
+</tr>
+</tbody></table>
+<p>④十六进制  写法：0x110或者0X110<br>|  基数  | 0,1,2,3,4,5,6,7,8,9,a(A),b(B),c(C),d(D),e(E),f(F) |<br>| :–: | :————————————–: |<br>|  进位  |                  逢16进1                   |<br>|  位权  |    110 = 1*16^2  + 1*16^1 + 0*16^0    |</p>
+<p>3.进制转换</p>
+<p>十进制变为其他进制：用十进制数除其他进制的位权取余数，除到商为0为止，最后余数往前写就是其他进制。</p>
+<p>其他进制转十进制：基数*位权的乘积就是十进制</p>
+<p>二进制转八进制：<u>3位</u>二进制转<u>1位</u>八进制</p>
+<p>二进制转十六进制：<u>4位</u>二进制转<u>1位</u>十六进制</p>
+<p>4.转换方式(bin\oct\hex)</p>
+<p>其他进制转十进制：直接print打印，即可将其他进制换算为对应的十进制</p>
+<p><u>其他进制转二进制 输入bin(1000)或者bin(0xaf)或者bin(0o55)</u></p>
+<p><u>其他进制转八进制 输入oct(1000)或者oct(0xaf)或者oct(0b01)</u></p>
+<p><u>其他进制转十六进制 输入hex(1000)或者hex(0o77)或者hex(0b11)</u></p>
+<h3 id="3-原码、反码、补码"><a href="#3-原码、反码、补码" class="headerlink" title="3.原码、反码、补码"></a>3.原码、反码、补码</h3><p>1.计算机存储数据</p>
+<p>计算机只能直接存数据，而且存的数据是数字的<strong>补码</strong></p>
+<p>符号位：数字转化为二进制后最高位为符号位，0为正，1为负</p>
+<p>真值：数字部分的二进制值</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">计算机内存单位</span><br><span class="line"></span><br><span class="line">位(bit)</span><br><span class="line"></span><br><span class="line">1字节(byte) = 8位</span><br><span class="line"></span><br><span class="line">1KB = 1024byte</span><br><span class="line"></span><br><span class="line">1MB = 1024KB</span><br><span class="line"></span><br><span class="line">1GB = 1024MB</span><br><span class="line"></span><br><span class="line">1TB = 1024GB</span><br></pre></td></tr></table></figure>
+<p><strong>正数</strong><br>|  原码  | 符号位+真值 | 01011010 |<br>| :–: | :—-: | :——: |<br>|  反码  | 与原码相同  | 01011010 |<br>|  补码  | 与原码相同  | 01011010 |<br>| 十进制  |        |    90    |<br><strong>负数</strong><br>|  原码  |    符号位+真值     | 11011010 |<br>| :–: | :———–: | :——: |<br>|  反码  | 符号位不变，其他位按位取反 | 10100101 |<br>|  补码  |     反码+1      | 10100110 |<br>| 十进制  |               |   -90    |</p>
+<p>计算机存储数据为什么存补码？</p>
+<p>计算机中没有减法器，只有加法器。导致负数原码参与运算的时候出错。  </p>
+<h3 id="作业"><a href="#作业" class="headerlink" title="作业"></a>作业</h3><p>10.写代码获取数字n=1234中每一位上的数</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">n = <span class="hljs-number">1234</span></span><br><span class="line">print(<span class="hljs-string">'千位：'</span>, n//<span class="hljs-number">1000</span>)</span><br><span class="line">print(<span class="hljs-string">'百位：'</span>, n % <span class="hljs-number">1000</span>//<span class="hljs-number">100</span>)</span><br><span class="line">print(<span class="hljs-string">'十位：'</span>, n % <span class="hljs-number">1000</span> % <span class="hljs-number">100</span>//<span class="hljs-number">10</span>)</span><br><span class="line">print(<span class="hljs-string">'个位：'</span>, n % <span class="hljs-number">10</span>)</span><br></pre></td></tr></table></figure>
+<p><img src="/.com//Users/%E5%94%90/Desktop/%E4%BD%9C%E4%B8%9A%E6%88%AA%E5%9B%BE/%E4%BD%9C%E4%B8%9A%E6%88%AA%E5%9B%BE2.jpg" alt="运行截图"><br>11.写代码统计一个任意整数m是几位数，并且逆序打印出每一位数字。（0基础不做, 不能用字符串来做）</p>
+<p>例如: m=123, 打印： m是3位数        3 2 1</p>
+<p>​      m=45321, 打印：m是5位数      1 2 3 5 4</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">m = int(input(<span class="hljs-string">'请输入一个整数:'</span>))</span><br><span class="line">n = m <span class="hljs-comment">#暂存输入的值</span></span><br><span class="line">num = <span class="hljs-number">0</span></span><br><span class="line"><span class="hljs-keyword">while</span>( m != <span class="hljs-number">0</span>):</span><br><span class="line">    x = m % <span class="hljs-number">10</span> <span class="hljs-comment"># 取个位数</span></span><br><span class="line">    print(x, end=<span class="hljs-string">' '</span>)</span><br><span class="line">    m = (m - x)//<span class="hljs-number">10</span> <span class="hljs-comment"># 减去个位数之后除以10，通过循环可以得到新的个位数</span></span><br><span class="line">    num = num + <span class="hljs-number">1</span> <span class="hljs-comment"># 统计位数</span></span><br><span class="line">print(<span class="hljs-string">'\n'</span>)</span><br><span class="line">print(<span class="hljs-string">'输入的%d是个%d位数'</span> % (n, num))</span><br></pre></td></tr></table></figure>
+<p><img src="/.com//Users/%E5%94%90/Desktop/%E4%BD%9C%E4%B8%9A%E6%88%AA%E5%9B%BE/%E4%BD%9C%E4%B8%9A%E6%88%AA%E5%9B%BE.jpg" alt="运行截图"></p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">输入两个数字就是 m, n = map(int, input().split())</span><br><span class="line"></span><br><span class="line">三个及三个以上就和两个的类似:</span><br><span class="line"></span><br><span class="line"> a, b, c = map(int, input().split())</span><br></pre></td></tr></table></figure>
+
+
+        </div>
+        
+        
+        
+        <div class="social-share"></div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/css/share.min.css">
+<script src="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/js/social-share.min.js"></script>
+        
     </div>
-</div></div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3>
+        <div class="buttons is-centered">
+            
+                
+<a class="button is-info donate">
+    <span class="icon is-small">
+        <i class="fab fa-alipay"></i>
+    </span>
+    <span>支付宝</span>
+    <div class="qrcode"><img src="/images/alipay.jpg" alt="支付宝"></div>
+</a>
+
+                
+                
+<a class="button is-success donate">
+    <span class="icon is-small">
+        <i class="fab fa-weixin"></i>
+    </span>
+    <span>微信</span>
+    <div class="qrcode"><img src="/images/weixin.png" alt="微信"></div>
+</a>
+
+                
+        </div>
+    </div>
+</div>
+
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/2019/10/26/03%20%E5%8F%98%E9%87%8F%E5%92%8C%E8%BF%90%E7%AE%97%E7%AC%A6/">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">03 变量和运算符</span>
+            </a>
+        </div>
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2019/10/23/JS%E5%BA%94%E7%94%A8/">
+                <span class="level-item">JS应用</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="title is-5 has-text-weight-normal">评论</h3>
+        
+<script>
+    var disqus_config = function () {
+        this.page.url = 'http://yoursite.com/2019/10/26/02%20python%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/';
+        this.page.identifier = '2019/10/26/02 python基础语法/';
+    };
+    (function() {
+        var d = document, s = d.createElement('script');  
+        s.src = '//' + '快来一起讨论吧~' + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+<div id="disqus_thread">
+    
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+    </div>
+</div>
+</div>
                 
 
 
@@ -697,7 +958,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo_panda.png" alt="想和你一起看下雨" height="28">
+                    <img src="/images/logo_panda.png" alt="02 python基础语法" height="28">
                 
                 </a>
                 <p class="is-size-7">

@@ -8,15 +8,18 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>标签 - 想和你一起看下雨</title>
+<title>05 Python中和数字相关的数据类型 - 想和你一起看下雨</title>
 
 
-    <meta property="og:type" content="website">
-<meta property="og:title" content="想和你一起看下雨">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;tags&#x2F;index.html">
+    <meta name="description" content="Python中和数字相关的数据类型：int、float、bool、complex，也讲到随机数的部分">
+<meta property="og:type" content="article">
+<meta property="og:title" content="05 Python中和数字相关的数据类型">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;10&#x2F;26&#x2F;05%20Python%E4%B8%AD%E5%92%8C%E6%95%B0%E5%AD%97%E7%9B%B8%E5%85%B3%E7%9A%84%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B&#x2F;index.html">
 <meta property="og:site_name" content="想和你一起看下雨">
+<meta property="og:description" content="Python中和数字相关的数据类型：int、float、bool、complex，也讲到随机数的部分">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;og_image.png">
+<meta property="og:updated_time" content="2019-10-26T02:38:54.514Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;og_image.png">
 
@@ -76,7 +79,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo_panda.png" alt="想和你一起看下雨" height="28">
+                <img src="/images/logo_panda.png" alt="05 Python中和数字相关的数据类型" height="28">
             
             </a>
         </div>
@@ -93,7 +96,7 @@
                 <a class="navbar-item"
                 href="/categories">分类</a>
                 
-                <a class="navbar-item is-active"
+                <a class="navbar-item"
                 href="/tags">标签</a>
                 
                 <a class="navbar-item"
@@ -125,18 +128,154 @@
     <section class="section">
         <div class="container">
             <div class="columns">
-                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card widget">
-    <div class="card-content">
-        <div class="menu">
-            <h3 class="menu-label">
-                标签
-            </h3>
-            <div class="field is-grouped is-grouped-multiline">
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main">
+<div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-10-26T02:33:56.448Z">2019-10-26</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/python%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/">python语言基础</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    3 分钟 读完 (大约 519 个字)
+                </span>
+                
                 
             </div>
         </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                05 Python中和数字相关的数据类型
+            
+        </h1>
+        <div class="content">
+            <p>Python中和数字相关的数据类型：int、float、bool、complex，也讲到随机数的部分</p>
+<a id="more"></a>
+<p>#####1.Python中和数字相关的数据类型有：</p>
+<p>######int、float、bool、complex</p>
+<p>1.int(整型)：</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">数字中所有整数对应的类型，例如：23, 58, 100</span><br></pre></td></tr></table></figure>
+<p>2.float(浮点型)：</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">生活中所有小数对应的类型，例如：2.3, 0.22, 2.666, 2.2e100</span><br></pre></td></tr></table></figure>
+<p>3.bool(布尔)：</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">只有True和False两个值；True本质就是数字1，False本质就是数字0</span><br></pre></td></tr></table></figure>
+<p>4.complex(复数):</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">包含所有的复数，形如a + bj的数就是复数，j 是虚数单位,j**2 == -1</span><br><span class="line">10+1j  3-5j 注意：虚部的1不能不写！</span><br></pre></td></tr></table></figure>
+<p>#####2.数据类型相关方法</p>
+<p>1.type(数据) —获取数据的类型</p>
+<p>2.isinstance(数据，类型)—判断指定数据是否是指定类型，返回布尔值。</p>
+<p>3.数据类型转换:    类型（数据）—-将数据转换成指定类型</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">result = int(2.3)</span><br><span class="line">print(result, type(result))</span><br><span class="line"># -----取整数</span><br><span class="line"></span><br><span class="line">result = float(2)</span><br><span class="line">print(result, type(result))</span><br><span class="line"># -----加.0</span><br><span class="line"></span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line">任何数据类型的数据都能转换为bool类型，所有为零或为空的数据</span><br><span class="line">(包括None)都会转换为False,其他全为True。</span><br><span class="line">bool(数据)</span><br><span class="line">&quot;&quot;&quot;</span><br></pre></td></tr></table></figure>
+<p>#####3.随机数</p>
+<p>随机挑选</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 随机挑选</span><br><span class="line">random.choice(序列) ---在序列中随机返回一个数据。</span><br><span class="line">range(M,N,step_size) ---从M开始,每次+step_size,直到N-1为止</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 随机浮点数</span><br><span class="line">random.random()  ---随机返回0~1的浮点数</span><br><span class="line">random.random()*100  ---随机返回0~100的浮点数</span><br><span class="line">random.random()*10 + 10  ---随机返回10~20的浮点数</span><br></pre></td></tr></table></figure>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># 打乱顺序</span></span><br><span class="line">list1 = [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>,<span class="hljs-number">7</span>,<span class="hljs-number">8</span>,<span class="hljs-number">9</span>]</span><br><span class="line">random.shuffle(list)  <span class="hljs-comment"># --将序列中的元素随机排列(序列必须是可变的)</span></span><br><span class="line">print(list1)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 随机浮点数</span><br><span class="line">result = random.uniform(10,60) # 产生[10,60]的随机浮点数，10和60都能取到</span><br><span class="line">print(result)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 随机整数</span><br><span class="line"># random.randint(1,10)  -- 产生[1~10]的随机整数，1和10都能取到</span><br></pre></td></tr></table></figure>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># 猜数字游戏</span></span><br><span class="line"><span class="hljs-keyword">import</span> random</span><br><span class="line">num = random.randint(<span class="hljs-number">1</span>, <span class="hljs-number">101</span>)</span><br><span class="line">sum1 = <span class="hljs-number">10</span></span><br><span class="line"><span class="hljs-keyword">while</span> <span class="hljs-literal">True</span>:</span><br><span class="line">    <span class="hljs-keyword">if</span> sum1 == <span class="hljs-number">0</span>:</span><br><span class="line">        print(<span class="hljs-string">'机会用完了，抱歉，你失败了！'</span>)</span><br><span class="line">        <span class="hljs-keyword">break</span></span><br><span class="line">    <span class="hljs-keyword">else</span>:</span><br><span class="line">        print(<span class="hljs-string">'你有%d次机会'</span> % sum1)</span><br><span class="line">        play_num = int(input(<span class="hljs-string">'please input a number:'</span>))</span><br><span class="line">        <span class="hljs-keyword">if</span> play_num == num:</span><br><span class="line">            print(<span class="hljs-string">'success!'</span>)</span><br><span class="line">            <span class="hljs-keyword">break</span></span><br><span class="line">        <span class="hljs-keyword">else</span>:</span><br><span class="line">            sum1 -= <span class="hljs-number">1</span></span><br><span class="line">            <span class="hljs-keyword">if</span> play_num &lt; num:</span><br><span class="line">                print(<span class="hljs-string">'the number is small!'</span>)</span><br><span class="line">            <span class="hljs-keyword">else</span>:</span><br><span class="line">                print(<span class="hljs-string">'the number is big!'</span>)</span><br></pre></td></tr></table></figure>
+
+
+        </div>
+        
+        
+        
+        <div class="social-share"></div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/css/share.min.css">
+<script src="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/js/social-share.min.js"></script>
+        
     </div>
-</div></div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3>
+        <div class="buttons is-centered">
+            
+                
+<a class="button is-info donate">
+    <span class="icon is-small">
+        <i class="fab fa-alipay"></i>
+    </span>
+    <span>支付宝</span>
+    <div class="qrcode"><img src="/images/alipay.jpg" alt="支付宝"></div>
+</a>
+
+                
+                
+<a class="button is-success donate">
+    <span class="icon is-small">
+        <i class="fab fa-weixin"></i>
+    </span>
+    <span>微信</span>
+    <div class="qrcode"><img src="/images/weixin.png" alt="微信"></div>
+</a>
+
+                
+        </div>
+    </div>
+</div>
+
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/2019/10/26/05continue%E5%92%8Cbreak%E5%92%8C%E4%B8%89%E7%9B%AE%E8%BF%90%E7%AE%97%E7%AC%A6/">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">05continue和break和三目运算符</span>
+            </a>
+        </div>
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2019/10/26/04%20%E5%88%86%E6%94%AF%E5%92%8C%E5%BE%AA%E7%8E%AF/">
+                <span class="level-item">04 分支和循环</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="title is-5 has-text-weight-normal">评论</h3>
+        
+<script>
+    var disqus_config = function () {
+        this.page.url = 'http://yoursite.com/2019/10/26/05%20Python%E4%B8%AD%E5%92%8C%E6%95%B0%E5%AD%97%E7%9B%B8%E5%85%B3%E7%9A%84%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/';
+        this.page.identifier = '2019/10/26/05 Python中和数字相关的数据类型/';
+    };
+    (function() {
+        var d = document, s = d.createElement('script');  
+        s.src = '//' + '快来一起讨论吧~' + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+<div id="disqus_thread">
+    
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+    </div>
+</div>
+</div>
                 
 
 
@@ -697,7 +836,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo_panda.png" alt="想和你一起看下雨" height="28">
+                    <img src="/images/logo_panda.png" alt="05 Python中和数字相关的数据类型" height="28">
                 
                 </a>
                 <p class="is-size-7">
