@@ -1,0 +1,1076 @@
+<!DOCTYPE html>
+<script src="/js/src/click.js"></script>
+<html  lang="zh">
+<head>
+    <meta charset="utf-8" />
+
+<meta name="generator" content="Hexo 4.0.0" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+<title>字典（承接上一天）和集合 - 想和你一起看下雨</title>
+
+
+    <meta name="description" content="Python中的字典">
+<meta property="og:type" content="article">
+<meta property="og:title" content="字典（承接上一天）和集合">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;10&#x2F;26&#x2F;%E5%AD%97%E5%85%B8%EF%BC%88%E6%89%BF%E6%8E%A5%E4%B8%8A%E4%B8%80%E5%A4%A9%EF%BC%89%E5%92%8C%E9%9B%86%E5%90%88&#x2F;index.html">
+<meta property="og:site_name" content="想和你一起看下雨">
+<meta property="og:description" content="Python中的字典">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;og_image.png">
+<meta property="og:updated_time" content="2019-10-26T02:42:10.210Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;og_image.png">
+
+
+
+
+
+
+
+<link rel="icon" href="/images/favicon.svg">
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.7.2/css/bulma.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:400,600|Source+Code+Pro">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@9.12.0/styles/atom-one-light.css">
+
+
+    
+    
+<style>body>.footer,body>.navbar,body>.section{opacity:0}</style>
+
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/css/lightgallery.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/css/justifiedGallery.min.css">
+
+    
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.css">
+
+    
+    
+    
+    
+<link rel="stylesheet" href="/css/back-to-top.css">
+
+    
+    
+    
+    
+    
+    
+    
+    <link rel="stylesheet" href="/css/progressbar.css">
+<script src="https://cdn.jsdelivr.net/npm/pace-js@1.0.2/pace.min.js"></script>
+    
+    
+    
+
+
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="is-3-column">
+    <nav class="navbar navbar-main">
+    <div class="container">
+        <div class="navbar-brand is-flex-center">
+            <a class="navbar-item navbar-logo" href="/">
+            
+                <img src="/images/logo_panda.png" alt="字典（承接上一天）和集合" height="28">
+            
+            </a>
+        </div>
+        <div class="navbar-menu">
+            
+            <div class="navbar-start">
+                
+                <a class="navbar-item"
+                href="/">主页</a>
+                
+                <a class="navbar-item"
+                href="/archives">归档</a>
+                
+                <a class="navbar-item"
+                href="/categories">分类</a>
+                
+                <a class="navbar-item"
+                href="/tags">标签</a>
+                
+                <a class="navbar-item"
+                href="/about">关于</a>
+                
+            </div>
+            
+            <div class="navbar-end">
+                
+                    
+                    <a class="navbar-item" target="_blank" title="Download on GitHub" href="https://github.com/Jade-sweet/Jade-sweet.github.io">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                    
+                
+                
+                
+                <a class="navbar-item search" title="搜索" href="javascript:;">
+                    <i class="fas fa-search"></i>
+                </a>
+                
+            </div>
+        </div>
+    </div>
+</nav>
+    
+    <section class="section">
+        <div class="container">
+            <div class="columns">
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main">
+<div class="card">
+    
+    <div class="card-content article ">
+        
+        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
+            <div class="level-left">
+                <time class="level-item has-text-grey" datetime="2019-10-26T02:33:56.456Z">2019-10-26</time>
+                
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/python%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">python语言基础-数据类型</a>
+                </div>
+                
+                
+                <span class="level-item has-text-grey">
+                    
+                    
+                    11 分钟 读完 (大约 1710 个字)
+                </span>
+                
+                
+            </div>
+        </div>
+        
+        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+            
+                字典（承接上一天）和集合
+            
+        </h1>
+        <div class="content">
+            <p>Python中的字典</p>
+<a id="more"></a>
+
+<p>####1.——————运算符<br>字典不支持 +，<em>，&gt;, &lt;, &gt;=, &lt;= ；<code>只支持 ==，!=</code><br>####2.——————in 和 not in<br>键 in / not in 字典 —— 判断字典中是否存在/不存在指定的键<br>####3.——————相关函数<br>len() —— 求键值对的个数<br>dict(数据) —— 将其他序列转换成字典（数据必须是序列，序列中的元素必须是小序列，<br>​              每个小序列有且只有两个元素，且小序列第一个元素不可变）<br>字典不能转换成数字，可以转换成布尔；<br>*</em>字典转换成列表时，是将字典的key作为元素**</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment">#——列表转字典</span></span><br><span class="line">seq = [(<span class="hljs-number">1</span>, <span class="hljs-number">3</span>), (<span class="hljs-string">'la'</span>, <span class="hljs-number">3</span>)]</span><br><span class="line">print(dict(seq))  <span class="hljs-comment"># &#123;1: 3, 'la': 3&#125;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># ——转列表</span></span><br><span class="line">seq1 = &#123;<span class="hljs-string">'ha'</span>: <span class="hljs-number">12</span>, <span class="hljs-string">'lala'</span>: <span class="hljs-number">23</span>&#125;</span><br><span class="line">seq2 = list(seq1)</span><br><span class="line">print(seq2)  <span class="hljs-comment"># ['ha', 'lala']</span></span><br></pre></td></tr></table></figure>
+
+<p>####4.————————相关方法<br>1）<code>字典.clear()</code> —— 清空字典</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">seq1 = &#123;<span class="hljs-string">'ha'</span>: <span class="hljs-number">12</span>, <span class="hljs-string">'lala'</span>: <span class="hljs-number">23</span>&#125;</span><br><span class="line">seq1.clear()</span><br><span class="line">print(seq1)</span><br></pre></td></tr></table></figure>
+
+<p>2)<code>字典.copy()</code> —— 拷贝产生一个薪字典（浅拷贝）</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">seq1 = &#123;<span class="hljs-string">'ha'</span>: <span class="hljs-number">12</span>, <span class="hljs-string">'lala'</span>: <span class="hljs-number">23</span>&#125;</span><br><span class="line">seq3 = seq1.copy()</span><br><span class="line">print(seq3)</span><br></pre></td></tr></table></figure>
+
+<p>3)<code>dict.fromkeys(序列,指定值)</code> —— 创建一个字典，将序列中的元素作为key，key对应的值都是指定的值</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dict2 = dict.fromkeys((<span class="hljs-string">'lala'</span>, <span class="hljs-string">'haha'</span>, <span class="hljs-string">'baba'</span>), <span class="hljs-number">13</span>)</span><br><span class="line">print(dict2)   <span class="hljs-comment"># &#123;'lala': 13, 'haha': 13, 'baba': 13&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>4)<code>字典.items()</code> —— 将字典中每个键值对转换成对应的元组，作为一个序列的元素(获取字典中所        有的key和value，返回的是一个列表中嵌套的小元组[(key1,value1),(key2,value2),…])</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">seq1 = &#123;<span class="hljs-string">'ha'</span>: <span class="hljs-number">12</span>, <span class="hljs-string">'lala'</span>: <span class="hljs-number">23</span>&#125;</span><br><span class="line">seq1.items()</span><br><span class="line">print(seq1.items())  <span class="hljs-comment"># dict_items([('ha', 12), ('lala', 23)])</span></span><br></pre></td></tr></table></figure>
+
+<p>5)<code>字典.values()</code> —— 获取字典中所有的值，返回一个列表</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">seq1 = &#123;<span class="hljs-string">'ha'</span>: <span class="hljs-number">12</span>, <span class="hljs-string">'lala'</span>: <span class="hljs-number">23</span>&#125;</span><br><span class="line">seq1.values()</span><br><span class="line">print(seq1.values())  <span class="hljs-comment"># dict_values([12, 23])</span></span><br></pre></td></tr></table></figure>
+
+<p>6) <code>字典.keys()</code> —— 获取字典中所有的key，返回一个列表</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">seq1 = &#123;<span class="hljs-string">'ha'</span>: <span class="hljs-number">12</span>, <span class="hljs-string">'lala'</span>: <span class="hljs-number">23</span>&#125;</span><br><span class="line">seq1.keys()</span><br><span class="line">print(seq1.keys())  <span class="hljs-comment"># dict_keys(['ha', 'lala'])</span></span><br></pre></td></tr></table></figure>
+<p>7)<code>字典.setdefault(key, 值)</code> —— 当key不存在时添加键值对（无法修改）</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># =================================================================</span></span><br><span class="line">seq1 = &#123;<span class="hljs-string">'ha'</span>: <span class="hljs-number">12</span>, <span class="hljs-string">'lala'</span>: <span class="hljs-number">23</span>&#125;</span><br><span class="line">seq1.setdefault(<span class="hljs-string">'zizi'</span>, <span class="hljs-number">14</span>)</span><br><span class="line">print(seq1)  <span class="hljs-comment"># &#123;'ha': 12, 'lala': 23, 'zizi': 14&#125;</span></span><br><span class="line"><span class="hljs-comment"># =================================================================</span></span><br></pre></td></tr></table></figure>
+
+<p>8)<code>字典1.update(字典2)</code> —— 将字典2的键值对添加到字典1</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">seq1 = &#123;<span class="hljs-string">'ha'</span>: <span class="hljs-number">12</span>, <span class="hljs-string">'lala'</span>: <span class="hljs-number">23</span>&#125;</span><br><span class="line">seq2 = &#123;<span class="hljs-string">'zizi'</span>: <span class="hljs-number">14</span>&#125;</span><br><span class="line">seq1.update(seq2)</span><br><span class="line">print(seq1)   <span class="hljs-comment"># &#123;'ha': 12, 'lala': 23, 'zizi': 14&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>##===================集合=================</p>
+<p>####1.——————————什么是集合（set）<br>1）集合<br>集合是容器型数据类型；将{}作为容器标志，多个元素用逗号隔开；{元素1，元素2，…..}<br><strong>集合是不可变，无序的</strong><br>2）元素<br><strong>集合中的元素必须是不可变的数据，而且唯一（自带去重的功能）</strong></p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set1 = &#123;<span class="hljs-number">13</span>, <span class="hljs-number">14</span>, <span class="hljs-string">'baba'</span>, (<span class="hljs-number">13</span>, <span class="hljs-number">14</span>)&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>空集合</strong>的表示({}表示的空字典)</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">set_none = set()</span><br></pre></td></tr></table></figure>
+
+<p>——————集合应用——————</p>
+<p>去重：<strong>集合自带去重功能</strong></p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">list1 = [<span class="hljs-number">12</span>, <span class="hljs-number">25</span>, <span class="hljs-number">32</span>, <span class="hljs-number">12</span>, <span class="hljs-number">14</span>, <span class="hljs-number">56</span>]</span><br><span class="line">list2 = list(set(list1))</span><br><span class="line">print(list2)</span><br></pre></td></tr></table></figure>
+
+<p>####2.————————————集合的增、删、改、查<br>1）查 —— 获取集合元素（只有<strong>遍历集合</strong>一种方法）</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">for 变量 in 集合：</span><br><span class="line">    pass</span><br><span class="line">补充：遍历字典和集合时，其实是遍历由字典和集合转换后的列表</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">names = &#123;<span class="hljs-string">'aa'</span>, <span class="hljs-string">'bb'</span>, <span class="hljs-string">'cc'</span>, <span class="hljs-string">'dd'</span>&#125;</span><br><span class="line"><span class="hljs-keyword">for</span> name <span class="hljs-keyword">in</span> names:</span><br><span class="line">    print(name)</span><br></pre></td></tr></table></figure>
+
+<p>2）增<br>a. <code>集合.add(元素)</code> —— 在集合中添加一个元素<br>b. <code>集合.update(序列)</code> —— 将序列中的元素添加到集合</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">names = &#123;<span class="hljs-string">'aa'</span>, <span class="hljs-string">'bb'</span>, <span class="hljs-string">'cc'</span>, <span class="hljs-string">'dd'</span>&#125;</span><br><span class="line">names.add(<span class="hljs-string">'ha'</span>)</span><br><span class="line">names.update((<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">13</span>))</span><br><span class="line">names.update(<span class="hljs-string">'laji'</span>)</span><br><span class="line">print(names)</span><br></pre></td></tr></table></figure>
+
+<p>3)删<br><code>集合.remove（元素）</code>—— 删除集合指定元素，元素不存在    会报错<br><code>集合.discard（元素）</code>—— 删除集合指定元素，元素不存在  不会报错</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">names = &#123;<span class="hljs-string">'aa'</span>, <span class="hljs-string">'bb'</span>, <span class="hljs-string">'cc'</span>, <span class="hljs-string">'dd'</span>&#125;</span><br><span class="line">names.remove(<span class="hljs-string">'bb'</span>)</span><br><span class="line">print(names)</span><br><span class="line">names.discard(<span class="hljs-string">'aa'</span>)</span><br><span class="line">print(names)</span><br></pre></td></tr></table></figure>
+
+<p>4)集合不支持改的操作</p>
+<p>####3.————————————集合相关操作<br>​    1）运算符：只支持判断 == ，!=<br>​    2）in / not in<br>​    3）len()、max()、min()、sum()、sorted()、set()</p>
+<p>####4.————————数学集合运算（重点），python支持数学的集合运算——————-</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">集合符号：| (并集) ，&amp; （交集），-（差集） ^补集</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">set3 = &#123;<span class="hljs-number">1</span>, <span class="hljs-number">5</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">6</span>, <span class="hljs-number">7</span>&#125;</span><br><span class="line">set4 = &#123;<span class="hljs-number">6</span>, <span class="hljs-number">7</span>, <span class="hljs-number">9</span>, <span class="hljs-number">12</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># ===========1)集合1|集合2 —— 将两个集合合并</span></span><br><span class="line">set5 = set3|set4</span><br><span class="line">print(set5)    <span class="hljs-comment"># &#123;1, 3, 4, 5, 6, 7, 9, 12&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># ===========2)集合1 &amp; 集合2 —— 获取两个集合的公共部分</span></span><br><span class="line">set6 = set3 &amp; set4</span><br><span class="line">print(set6)  <span class="hljs-comment"># &#123;6, 7&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># ===========3)集合1 - 集合2 —— 获取集合1中除了集合2与集合1的公共部分剩下的部分</span></span><br><span class="line">set7 = set3 - set4</span><br><span class="line">print(set7)   <span class="hljs-comment"># &#123;1, 3, 4, 5&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># ===========4)集合1^集合2 —— 获取集合1和集合2公共部分以外的部分</span></span><br><span class="line">set8 = set3 ^ set4</span><br><span class="line">print(set8)  <span class="hljs-comment"># &#123;1, 3, 4, 5, 9, 12&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="hljs-comment"># ===========5)集合1 &gt; 集合2 —— 判断集合1是否包含集合2（集合2是否是集合1的子集）</span></span><br><span class="line">print(set3 &gt; set4)  <span class="hljs-comment"># False</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>总结：</strong>需要存储多个数据时一般选择用列表或字典；如果存储多个数据不需要区分，就使用列表。<br>​        如果存储多个数据需要区分，就使用字典；如果涉及去重或业务逻辑中涉及数学集合运算<br>​        就用集合；原则上不能被修改的数据用元组</p>
+<p>##==============字符串和字符==============</p>
+<p>####1.——————什么是字符串（str）<br>字符串是容器型数据类型（序列），将’ ‘ 或 “ “作为容器标志，多个字符（元素）直接包含在引号中<br>字符串是<strong>不可变（不支持增、删、改），且有序的</strong></p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">str1 = <span class="hljs-string">'halabashabi'</span></span><br></pre></td></tr></table></figure>
+
+<p>####2.————字符串中的元素（字符）</p>
+<p>1）普通字符：<br>2）特殊字符<br>a.<code>转义字符</code>：<strong>在指定符号或字母前加 \ 来表示特殊功能或者特殊意义的字符</strong><br>​    &#39; —— 表示一个单引号<br>​    &quot; —— 表示一个双引号<br>​    \n —— 换行符<br>​    \t —— 制表符(缩进)<br>​    \\ —— 表示一个\（普通的反斜杠）<br>注意：一个转义字符的长度是1</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">str2 = <span class="hljs-string">'123\'a\"16'</span></span><br><span class="line">print(str2)</span><br><span class="line">str3 = <span class="hljs-string">'床前明月光，\n疑似地上霜'</span></span><br><span class="line">print(str3)</span><br><span class="line">str4 = <span class="hljs-string">'\t床前明月光，\n\t疑似地上霜'</span></span><br><span class="line">print(str4)</span><br><span class="line">str5 = <span class="hljs-string">'123\\1314'</span></span><br><span class="line">print(str5)</span><br></pre></td></tr></table></figure>
+
+<p>b.<code>编码字符</code>： \u加4位的十六进制数表示一个字符；数字对应值是字符对应的编码值<br>字符编码:计算机在存储数据时只能存储数字。计算机存储文字（字符）时实质存的是文字对<br>​        应的数字，每个数字都会对应一个固定的数字，这个数字就是字符的编码<br>编码表：每个字符和数字的一一对应关系；<br>​        常见编码表：ASCII表、Unicode表（Unicode表中文范围：4E00-9FA5）（Unicode表是    对ASCII表的扩展）</p>
+<p>==============================</p>
+<p><code>chr(编码值)</code> —— 获取编码值对应的字符<br><code>ord(字符)</code> —— 获取字符对应的编码值</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">str6 = <span class="hljs-string">'一\u9AF5'</span></span><br><span class="line">print(str6)</span><br><span class="line">print(chr(<span class="hljs-number">1314</span>), ord(<span class="hljs-string">'罗'</span>), ord(<span class="hljs-string">'维'</span>), ord(<span class="hljs-string">'君'</span>))  <span class="hljs-comment"># Ԣ 32599 32500 21531</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+        
+        
+        
+        <div class="social-share"></div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/css/share.min.css">
+<script src="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/js/social-share.min.js"></script>
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="menu-label has-text-centered">喜欢这篇文章？打赏一下作者吧</h3>
+        <div class="buttons is-centered">
+            
+                
+<a class="button is-info donate">
+    <span class="icon is-small">
+        <i class="fab fa-alipay"></i>
+    </span>
+    <span>支付宝</span>
+    <div class="qrcode"><img src="/images/alipay.jpg" alt="支付宝"></div>
+</a>
+
+                
+                
+<a class="button is-success donate">
+    <span class="icon is-small">
+        <i class="fab fa-weixin"></i>
+    </span>
+    <span>微信</span>
+    <div class="qrcode"><img src="/images/weixin.png" alt="微信"></div>
+</a>
+
+                
+        </div>
+    </div>
+</div>
+
+
+
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
+        
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/2019/10/26/%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%93%8D%E4%BD%9C/">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">字符串的操作</span>
+            </a>
+        </div>
+        
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2019/10/26/%E5%85%83%E7%BB%84/">
+                <span class="level-item">元组</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
+        </div>
+        
+    </div>
+</div>
+
+
+
+<div class="card">
+    <div class="card-content">
+        <h3 class="title is-5 has-text-weight-normal">评论</h3>
+        
+<script>
+    var disqus_config = function () {
+        this.page.url = 'http://yoursite.com/2019/10/26/%E5%AD%97%E5%85%B8%EF%BC%88%E6%89%BF%E6%8E%A5%E4%B8%8A%E4%B8%80%E5%A4%A9%EF%BC%89%E5%92%8C%E9%9B%86%E5%90%88/';
+        this.page.identifier = '2019/10/26/字典（承接上一天）和集合/';
+    };
+    (function() {
+        var d = document, s = d.createElement('script');  
+        s.src = '//' + '快来一起讨论吧~' + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
+<div id="disqus_thread">
+    
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+    </div>
+</div>
+</div>
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen  has-order-1 column-left is-sticky">
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <nav class="level">
+            <div class="level-item has-text-centered" style="flex-shrink: 1">
+                <div>
+                    
+                    <figure class="image is-128x128 has-mb-6">
+                        <img class="" src="/images/title.jpeg" alt="T">
+                    </figure>
+                    
+                    <p class="is-size-4 is-block">
+                        T
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-block">
+                        最喜欢的莫过于和你一起看窗外的雨
+                    </p>
+                    
+                    
+                    <p class="is-size-6 is-flex is-flex-center has-text-grey">
+                        <i class="fas fa-map-marker-alt has-mr-7"></i>
+                        <span>四川.成都</span>
+                    </p>
+                    
+                </div>
+            </div>
+        </nav>
+        <nav class="level is-mobile">
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        文章
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        23
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        分类
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        11
+                    </p>
+                </div>
+            </div>
+            <div class="level-item has-text-centered is-marginless">
+                <div>
+                    <p class="heading">
+                        标签
+                    </p>
+                    <p class="title has-text-weight-normal">
+                        0
+                    </p>
+                </div>
+            </div>
+        </nav>
+        
+        <div class="level">
+            <a class="level-item button is-link is-rounded" href="https://github.com/Jade-sweet/Jade-sweet.github.io" target="_blank">
+                关注我</a>
+        </div>
+        
+        
+        
+        <div class="level is-mobile">
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="Github" href="https://github.com/Jade-sweet/Jade-sweet.github.io">
+                
+                <i class="fab fa-github"></i>
+                
+            </a>
+            
+            <a class="level-item button is-white is-marginless" target="_blank"
+                title="QQ" href="https://user.qzone.qq.com/1092824310/main">
+                
+                <i class="fab fa-qq"></i>
+                
+            </a>
+            
+        </div>
+        
+    </div>
+</div>
+    
+        
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            链接
+        </h3>
+        <ul class="menu-list">
+        
+            <li>
+                <a class="level is-mobile" href="https://www.bilibili.com" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">Bilibili</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">www.bilibili.com</span>
+                    </span>
+                </a>
+            </li>
+        
+            <li>
+                <a class="level is-mobile" href="https://www.baidu.com" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">Baidu</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">www.baidu.com</span>
+                    </span>
+                </a>
+            </li>
+        
+            <li>
+                <a class="level is-mobile" href="https://www.ithome.com" target="_blank">
+                    <span class="level-left">
+                        <span class="level-item">Ithome</span>
+                    </span>
+                    <span class="level-right">
+                        <span class="level-item tag">www.ithome.com</span>
+                    </span>
+                </a>
+            </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+
+    
+        
+<div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                分类
+            </h3>
+            <ul class="menu-list">
+            <li>
+        <a class="level is-marginless" href="/categories/HTML%E5%9F%BA%E7%A1%80/">
+            <span class="level-start">
+                <span class="level-item">HTML基础</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/python%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/">
+            <span class="level-start">
+                <span class="level-item">python语言基础</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">5</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/python%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80-socket%E7%BC%96%E7%A8%8B/">
+            <span class="level-start">
+                <span class="level-item">python语言基础-socket编程</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/python%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80-%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/">
+            <span class="level-start">
+                <span class="level-item">python语言基础-内存管理</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/python%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80-%E5%87%BD%E6%95%B0%E9%83%A8%E5%88%86/">
+            <span class="level-start">
+                <span class="level-item">python语言基础-函数部分</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">3</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/python%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80-%E5%A4%9A%E7%BA%BF%E7%A8%8B/">
+            <span class="level-start">
+                <span class="level-item">python语言基础-多线程</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/python%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80-%E5%BC%82%E5%B8%B8%E6%8D%95%E8%8E%B7/">
+            <span class="level-start">
+                <span class="level-item">python语言基础-异常捕获</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/python%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">
+            <span class="level-start">
+                <span class="level-item">python语言基础-数据类型</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">4</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/python%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80-%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C%E9%83%A8%E5%88%86/">
+            <span class="level-start">
+                <span class="level-item">python语言基础-文件操作部分</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/python%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80-%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">
+            <span class="level-start">
+                <span class="level-item">python语言基础-正则表达式</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/python%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/">
+            <span class="level-start">
+                <span class="level-item">python语言基础-面向对象</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">2</span>
+            </span>
+        </a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+    
+    
+        <div class="column-right-shadow is-hidden-widescreen is-sticky">
+        
+            
+        
+            <div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            最新文章
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/2019/10/26/socket%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="socket网络编程">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-26T02:33:56.477Z">2019-10-26</time></div>
+                    <a href="/2019/10/26/socket%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/" class="title has-link-black-ter is-size-6 has-text-weight-normal">socket网络编程</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/python%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80-socket%E7%BC%96%E7%A8%8B/">python语言基础-socket编程</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/10/26/%E5%A4%9A%E7%BA%BF%E7%A8%8B/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="多线程">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-26T02:33:56.475Z">2019-10-26</time></div>
+                    <a href="/2019/10/26/%E5%A4%9A%E7%BA%BF%E7%A8%8B/" class="title has-link-black-ter is-size-6 has-text-weight-normal">多线程</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/python%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80-%E5%A4%9A%E7%BA%BF%E7%A8%8B/">python语言基础-多线程</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/10/26/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="正则表达式">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-26T02:33:56.473Z">2019-10-26</time></div>
+                    <a href="/2019/10/26/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" class="title has-link-black-ter is-size-6 has-text-weight-normal">正则表达式</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/python%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80-%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">python语言基础-正则表达式</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/10/26/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E5%92%8C%E6%8B%B7%E8%B4%9D/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="内存管理和拷贝">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-26T02:33:56.472Z">2019-10-26</time></div>
+                    <a href="/2019/10/26/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E5%92%8C%E6%8B%B7%E8%B4%9D/" class="title has-link-black-ter is-size-6 has-text-weight-normal">内存管理和拷贝</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/python%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80-%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/">python语言基础-内存管理</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/10/26/%E5%B1%9E%E6%80%A7%E7%9A%84getter%E5%92%8Csetter%E3%80%81%E7%A7%81%E6%9C%89%E5%8C%96%E3%80%81%E7%BB%A7%E6%89%BF%E3%80%81%E8%BF%90%E7%AE%97%E7%AC%A6%E9%87%8D%E8%BD%BD/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="属性的getter和setter、私有化、继承、运算符重载">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-26T02:33:56.470Z">2019-10-26</time></div>
+                    <a href="/2019/10/26/%E5%B1%9E%E6%80%A7%E7%9A%84getter%E5%92%8Csetter%E3%80%81%E7%A7%81%E6%9C%89%E5%8C%96%E3%80%81%E7%BB%A7%E6%89%BF%E3%80%81%E8%BF%90%E7%AE%97%E7%AC%A6%E9%87%8D%E8%BD%BD/" class="title has-link-black-ter is-size-6 has-text-weight-normal">属性的getter和setter、私有化、继承、运算符重载</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/python%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/">python语言基础-面向对象</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            归档
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/10/">
+                <span class="level-start">
+                    <span class="level-item">十月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">23</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+        
+            <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                标签
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+            </div>
+        </div>
+    </div>
+</div>
+        
+        </div>
+    
+</div>
+
+                
+
+
+
+
+<div class="column is-4-tablet is-4-desktop is-3-widescreen is-hidden-touch is-hidden-desktop-only has-order-3 column-right is-sticky">
+    
+        
+    
+        <div class="card widget">
+    <div class="card-content">
+        <h3 class="menu-label">
+            最新文章
+        </h3>
+        
+        <article class="media">
+            
+            <a href="/2019/10/26/socket%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="socket网络编程">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-26T02:33:56.477Z">2019-10-26</time></div>
+                    <a href="/2019/10/26/socket%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/" class="title has-link-black-ter is-size-6 has-text-weight-normal">socket网络编程</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/python%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80-socket%E7%BC%96%E7%A8%8B/">python语言基础-socket编程</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/10/26/%E5%A4%9A%E7%BA%BF%E7%A8%8B/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="多线程">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-26T02:33:56.475Z">2019-10-26</time></div>
+                    <a href="/2019/10/26/%E5%A4%9A%E7%BA%BF%E7%A8%8B/" class="title has-link-black-ter is-size-6 has-text-weight-normal">多线程</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/python%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80-%E5%A4%9A%E7%BA%BF%E7%A8%8B/">python语言基础-多线程</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/10/26/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="正则表达式">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-26T02:33:56.473Z">2019-10-26</time></div>
+                    <a href="/2019/10/26/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" class="title has-link-black-ter is-size-6 has-text-weight-normal">正则表达式</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/python%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80-%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">python语言基础-正则表达式</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/10/26/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E5%92%8C%E6%8B%B7%E8%B4%9D/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="内存管理和拷贝">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-26T02:33:56.472Z">2019-10-26</time></div>
+                    <a href="/2019/10/26/%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%E5%92%8C%E6%8B%B7%E8%B4%9D/" class="title has-link-black-ter is-size-6 has-text-weight-normal">内存管理和拷贝</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/python%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80-%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/">python语言基础-内存管理</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
+            <a href="/2019/10/26/%E5%B1%9E%E6%80%A7%E7%9A%84getter%E5%92%8Csetter%E3%80%81%E7%A7%81%E6%9C%89%E5%8C%96%E3%80%81%E7%BB%A7%E6%89%BF%E3%80%81%E8%BF%90%E7%AE%97%E7%AC%A6%E9%87%8D%E8%BD%BD/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="属性的getter和setter、私有化、继承、运算符重载">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-26T02:33:56.470Z">2019-10-26</time></div>
+                    <a href="/2019/10/26/%E5%B1%9E%E6%80%A7%E7%9A%84getter%E5%92%8Csetter%E3%80%81%E7%A7%81%E6%9C%89%E5%8C%96%E3%80%81%E7%BB%A7%E6%89%BF%E3%80%81%E8%BF%90%E7%AE%97%E7%AC%A6%E9%87%8D%E8%BD%BD/" class="title has-link-black-ter is-size-6 has-text-weight-normal">属性的getter和setter、私有化、继承、运算符重载</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/python%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/">python语言基础-面向对象</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+    </div>
+</div>
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+        <h3 class="menu-label">
+            归档
+        </h3>
+        <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/10/">
+                <span class="level-start">
+                    <span class="level-item">十月 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">23</span>
+                </span>
+            </a>
+        </li>
+        
+        </ul>
+        </div>
+    </div>
+</div>
+    
+        <div class="card widget">
+    <div class="card-content">
+        <div class="menu">
+            <h3 class="menu-label">
+                标签
+            </h3>
+            <div class="field is-grouped is-grouped-multiline">
+                
+            </div>
+        </div>
+    </div>
+</div>
+    
+    
+</div>
+
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+    <div class="container">
+        <div class="level">
+            <div class="level-start has-text-centered-mobile">
+                <a class="footer-logo is-block has-mb-6" href="/">
+                
+                    <img src="/images/logo_panda.png" alt="字典（承接上一天）和集合" height="28">
+                
+                </a>
+                <p class="is-size-7">
+                &copy; 2019 Tang&nbsp;
+                Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> & <a
+                        href="https://github.com/ppoffice/hexo-theme-icarus" target="_blank">Icarus</a>
+                
+                </p>
+            </div>
+            <div class="level-end">
+            
+                <div class="field has-addons is-flex-center-mobile has-mt-5-mobile is-flex-wrap is-flex-middle">
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="QQ" href="https://user.qzone.qq.com/1092824310/main">
+                        
+                        <i class="fab fa-qq"></i>
+                        
+                    </a>
+                </p>
+                
+                <p class="control">
+                    <a class="button is-white is-large" target="_blank" title="Download on GitHub" href="https://github.com/Jade-sweet/Jade-sweet.github.io">
+                        
+                        <i class="fab fa-github"></i>
+                        
+                    </a>
+                </p>
+                
+                </div>
+            
+            </div>
+        </div>
+    </div>
+</footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/min/moment-with-locales.min.js"></script>
+<script>moment.locale("zh-CN");</script>
+
+<script>
+var IcarusThemeSettings = {
+    article: {
+        highlight: {
+            clipboard: true,
+            fold: 'unfolded'
+        }
+    }
+};
+</script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.4/dist/clipboard.min.js" defer></script>
+
+
+
+    
+    
+<script src="/js/animation.js"></script>
+
+    
+    
+<script src="https://cdn.jsdelivr.net/npm/lightgallery@1.6.8/dist/js/lightgallery.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/justifiedGallery@3.7.0/dist/js/jquery.justifiedGallery.min.js" defer></script>
+<script src="/js/gallery.js" defer></script>
+
+    
+    
+<div id="outdated">
+    <h6>Your browser is out-of-date!</h6>
+    <p>Update your browser to view this website correctly. <a id="btnUpdateBrowser" href="http://outdatedbrowser.com/" target="_blank" rel="noopener">Update
+            my browser now </a></p>
+    <p class="last"><a href="#" id="btnCloseUpdateBrowser" title="Close">&times;</a></p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/outdatedbrowser@1.1.5/outdatedbrowser/outdatedbrowser.min.js" defer></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        outdatedBrowser({
+            bgColor: '#f25648',
+            color: '#ffffff',
+            lowerThan: 'flex'
+        });
+    });
+</script>
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/unpacked/MathJax.js?config=TeX-MML-AM_CHTML" defer></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    MathJax.Hub.Config({
+        'HTML-CSS': {
+            matchFontHeight: false
+        },
+        SVG: {
+            matchFontHeight: false
+        },
+        CommonHTML: {
+            matchFontHeight: false
+        },
+        tex2jax: {
+            inlineMath: [
+                ['$','$'],
+                ['\\(','\\)']
+            ]
+        }
+    });
+});
+</script>
+    
+    
+<a id="back-to-top" title="回到顶端" href="javascript:;">
+    <i class="fas fa-chevron-up"></i>
+</a>
+<script src="/js/back-to-top.js" defer></script>
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+
+<script src="/js/main.js" defer></script>
+
+    
+    <div class="searchbox ins-search">
+    <div class="searchbox-container ins-search-container">
+        <div class="searchbox-input-wrapper">
+            <input type="text" class="searchbox-input ins-search-input" placeholder="想要查找什么..." />
+            <span class="searchbox-close ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="searchbox-result-wrapper ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+    (function (window) {
+        var INSIGHT_CONFIG = {
+            TRANSLATION: {
+                POSTS: '文章',
+                PAGES: '页面',
+                CATEGORIES: '分类',
+                TAGS: '标签',
+                UNTITLED: '(无标题)',
+            },
+            CONTENT_URL: '/content.json',
+        };
+        window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+    })(window);
+</script>
+<script src="/js/insight.js" defer></script>
+<link rel="stylesheet" href="/css/search.css">
+<link rel="stylesheet" href="/css/insight.css">
+    
+
+    <!-- 雪花特效 -->
+    <script type="text/javascript">
+      var windowWidth = $(window).width();
+      if (windowWidth > 480) {
+        document.write('<script type="text/javascript" src="/js/src/snow.js"><\/script>');
+      }
+    </script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"model":{"scale":1,"hHeadPos":0.5,"vHeadPos":0.618},"display":{"superSample":2,"width":200,"height":400,"position":"right","hOffset":0,"vOffset":-20},"mobile":{"show":false},"react":{"opacity":0.7},"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
