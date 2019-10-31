@@ -8,18 +8,19 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>异常捕获 - 想和你一起看下雨</title>
+<title>Redis中的字符串 - 想和你一起看下雨</title>
 
 
-    <meta name="description" content="Python代码出错，程序会异常，这个时候我们可进行异常捕获，让错误可控">
+    <meta name="description" content="Redis中的数据类型常用的有6种1.列表2.字典3.哈希4.集合5.有序集合6.地理位置">
+<meta name="keywords" content="Redis">
 <meta property="og:type" content="article">
-<meta property="og:title" content="异常捕获">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;10&#x2F;26&#x2F;%E5%BC%82%E5%B8%B8%E6%8D%95%E8%8E%B7&#x2F;index.html">
+<meta property="og:title" content="Redis中的字符串">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;10&#x2F;31&#x2F;Redis%E4%B8%AD%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2&#x2F;index.html">
 <meta property="og:site_name" content="想和你一起看下雨">
-<meta property="og:description" content="Python代码出错，程序会异常，这个时候我们可进行异常捕获，让错误可控">
+<meta property="og:description" content="Redis中的数据类型常用的有6种1.列表2.字典3.哈希4.集合5.有序集合6.地理位置">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;og_image.png">
-<meta property="og:updated_time" content="2019-10-26T02:51:41.806Z">
+<meta property="og:updated_time" content="2019-10-31T09:16:33.312Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;og_image.png">
 
@@ -79,7 +80,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo_panda.png" alt="异常捕获" height="28">
+                <img src="/images/logo_panda.png" alt="Redis中的字符串" height="28">
             
             </a>
         </div>
@@ -135,17 +136,17 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-10-26T02:33:56.467Z">2019-10-26</time>
+                <time class="level-item has-text-grey" datetime="2019-10-31T06:08:23.000Z">2019-10-31</time>
                 
                 <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/python%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80-%E5%BC%82%E5%B8%B8%E6%8D%95%E8%8E%B7/">python语言基础-异常捕获</a>
+                <a class="has-link-grey -link" href="/categories/Redis%E4%B8%AD%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2/">Redis中的字符串</a>
                 </div>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    11 分钟 读完 (大约 1687 个字)
+                    7 分钟 读完 (大约 1028 个字)
                 </span>
                 
                 
@@ -154,86 +155,105 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                异常捕获
+                Redis中的字符串
             
         </h1>
         <div class="content">
-            <p>Python代码出错，程序会异常，这个时候我们可进行异常捕获，让错误可控</p>
+            <p>Redis中的数据类型常用的有6种<br>1.列表<br>2.字典<br>3.哈希<br>4.集合<br>5.有序集合<br>6.地理位置</p>
 <a id="more"></a>
-<h3 id="异常捕获"><a href="#异常捕获" class="headerlink" title="异常捕获"></a>异常捕获</h3><p>异常-程序执行那个过程中出现错误(报错)</p>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">print(&apos;============&apos;)</span><br><span class="line"># 如果程序出现异常，那么程序会直接结束，不再执行后面的其他语法</span><br><span class="line">print([1, 2][20])</span><br><span class="line">print(&apos;++++++++++++&apos;)</span><br></pre></td></tr></table></figure>
+<p>下面介绍Redis中的字符串相关的操作</p>
+<hr>
+<p><strong>set</strong><br>set key value</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">redis&gt; SET key &quot;value&quot;</span><br><span class="line">OK</span><br><span class="line"></span><br><span class="line">redis&gt; GET key</span><br><span class="line">&quot;value&quot;</span><br></pre></td></tr></table></figure>
 
-<p>异常捕获 -让程序出现异常的时候程序不崩溃，可以接着往后执行。</p>
-<p>什么时候需要捕获异常 - 明知道某个位置程序可能会出现异常，但没法通过程序来控制的时候就使用异常捕获。</p>
-<h4 id="异常捕获的语法"><a href="#异常捕获的语法" class="headerlink" title="异常捕获的语法"></a>异常捕获的语法</h4><h5 id="语法一：捕获所有类型的异常"><a href="#语法一：捕获所有类型的异常" class="headerlink" title="语法一：捕获所有类型的异常"></a>语法一：捕获所有类型的异常</h5><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">try:</span><br><span class="line">	代码块1</span><br><span class="line">except:</span><br><span class="line">	代码块2</span><br><span class="line">	</span><br><span class="line">说明：</span><br><span class="line">try - 关键字，固定写法</span><br><span class="line">代码块1 - 和try保持一个缩进的一条语句或多条语句；需要捕获异常的语句。</span><br><span class="line">except - 关键字，固定写法</span><br><span class="line">代码块2 - 和except保持一个缩进的一条或多条语句；出现异常后对这个异常进行处理的代码。</span><br><span class="line"></span><br><span class="line">执行过程：</span><br><span class="line">先执行代码块1  ①代码块1如果出现异常，直接执行代码块2，再执行代码块2后的语句</span><br><span class="line">			 ②代码块1如果不出现异常，直接执行代码块2后的语句。</span><br><span class="line">		</span><br><span class="line">try:</span><br><span class="line">	age = int(input(&apos;please input your age:&apos;))</span><br><span class="line">except:</span><br><span class="line">	print(&apos;input error!please input a number with class int&apos;)</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">def num():</span><br><span class="line">    while True:</span><br><span class="line">    	try:</span><br><span class="line">          age = int(input(&apos;please input your age:&apos;))</span><br><span class="line">          print(type(age))</span><br><span class="line">        return age</span><br><span class="line">    	except:</span><br><span class="line">          print(&apos;input error!please input a number with class int&apos;)</span><br><span class="line">          print(&apos;please input again!&apos;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">your_age = num()</span><br><span class="line">print(type(your_age))</span><br><span class="line">print(your_age)</span><br></pre></td></tr></table></figure>
+<p>set key value ex time</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">redis&gt; SET key-with-expire-time &quot;hello&quot; EX 10086</span><br><span class="line">OK</span><br><span class="line">redis&gt; GET key-with-expire-time</span><br><span class="line">&quot;hello&quot;</span><br><span class="line"></span><br><span class="line">redis&gt; TTL key-with-expire-time</span><br><span class="line">(integer) 10069</span><br></pre></td></tr></table></figure>
 
-<p>#####语法二：捕获指定的异常</p>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">try:</span><br><span class="line">	代码块1</span><br><span class="line">except 错误类型:</span><br><span class="line">	代码块2</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">执行过程：</span><br><span class="line">先执行代码块1  ①代码块1如果出现异常，并且异常类型和except后面的错误类型一致，			 再执行代码块2后的语句</span><br><span class="line">			 ②代码块1如果不出现异常，并且异常类型和except后面的错误类型不一               致，程序直接崩溃</span><br></pre></td></tr></table></figure>
+<p>set key value NX</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">redis&gt; SET not-exists-key &quot;value&quot; NX</span><br><span class="line">OK      # 键不存在，设置成功</span><br><span class="line"></span><br><span class="line">redis&gt; GET not-exists-key</span><br><span class="line">&quot;value&quot;</span><br><span class="line"></span><br><span class="line">redis&gt; SET not-exists-key &quot;new-value&quot; NX</span><br><span class="line">(nil)   # 键已经存在，设置失败</span><br><span class="line"></span><br><span class="line">redis&gt; GEt not-exists-key</span><br><span class="line">&quot;value&quot; # 维持原值不变</span><br></pre></td></tr></table></figure>
 
-<p>#####语法三、四：同时捕获多种指定的异常</p>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">try:</span><br><span class="line">	代码块1</span><br><span class="line">except (错误类型1,错误类型2...):</span><br><span class="line">	代码块2</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">try:</span><br><span class="line">	代码块1</span><br><span class="line">except 错误类型1:</span><br><span class="line">	代码块2</span><br><span class="line">except 错误类型2:</span><br><span class="line">	代码块3</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<p>set key value xx</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">redis&gt; EXISTS exists-key</span><br><span class="line">(integer) 0</span><br><span class="line"></span><br><span class="line">redis&gt; SET exists-key &quot;value&quot; XX</span><br><span class="line">(nil)   # 因为键不存在，设置失败</span><br><span class="line"></span><br><span class="line">redis&gt; SET exists-key &quot;value&quot;</span><br><span class="line">OK      # 先给键设置一个值</span><br><span class="line"></span><br><span class="line">redis&gt; SET exists-key &quot;new-value&quot; XX</span><br><span class="line">OK      # 设置新值成功</span><br><span class="line"></span><br><span class="line">redis&gt; GET exists-key</span><br><span class="line">&quot;new-value&quot;</span><br></pre></td></tr></table></figure>
 
-<h5 id="finally"><a href="#finally" class="headerlink" title="finally"></a>finally</h5><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">以上所有的语法结构的最后都可以加一个finally，加完后不会影响原结构的功能。</span><br><span class="line">特点：try后面的代码块不管发生什么情况，finally后的代码块会被执行</span><br></pre></td></tr></table></figure>
+<hr>
+<p><strong>setnx</strong></p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">redis&gt; EXISTS job                # job 不存在</span><br><span class="line">(integer) 0</span><br><span class="line"></span><br><span class="line">redis&gt; SETNX job &quot;programmer&quot;    # job 设置成功</span><br><span class="line">(integer) 1</span><br><span class="line"></span><br><span class="line">redis&gt; SETNX job &quot;code-farmer&quot;   # 尝试覆盖 job ，失败</span><br><span class="line">(integer) 0</span><br><span class="line"></span><br><span class="line">redis&gt; GET job                   # 没有被覆盖</span><br><span class="line">&quot;programmer&quot;</span><br></pre></td></tr></table></figure>
 
+<hr>
+<p><strong>setex</strong></p>
+<p><em>在键key不存在的情况下执行setex</em></p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">redis&gt; SETEX cache_user_id 60 10086</span><br><span class="line">OK</span><br><span class="line"></span><br><span class="line">redis&gt; GET cache_user_id  # 值</span><br><span class="line">&quot;10086&quot;</span><br><span class="line"></span><br><span class="line">redis&gt; TTL cache_user_id  # 剩余生存时间</span><br><span class="line">(integer) 49</span><br></pre></td></tr></table></figure>
 
+<p><em>在键key存在的情况下执行setex覆盖旧值</em></p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">redis&gt; SET cd &quot;timeless&quot;</span><br><span class="line">OK</span><br><span class="line"></span><br><span class="line">redis&gt; SETEX cd 3000 &quot;goodbye my love&quot;</span><br><span class="line">OK</span><br><span class="line"></span><br><span class="line">redis&gt; GET cd</span><br><span class="line">&quot;goodbye my love&quot;</span><br><span class="line"></span><br><span class="line">redis&gt; TTL cd</span><br><span class="line">(integer) 2997</span><br></pre></td></tr></table></figure>
 
-<h3 id="抛出异常"><a href="#抛出异常" class="headerlink" title="抛出异常"></a>抛出异常</h3><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">raise 异常类型</span><br><span class="line">出现指定条件后，直接终止程序，报出异常！</span><br></pre></td></tr></table></figure>
+<hr>
+<p><strong>get</strong></p>
+<p>如果键 <code>key</code> 不存在， 那么返回特殊值 <code>nil</code> ； 否则， 返回键 <code>key</code> 的值。</p>
+<p>如果键 <code>key</code> 的值并非字符串类型， 那么返回一个错误， 因为 <code>GET</code> 命令只能用于字符串值。</p>
+<p>对不存在的键 <code>key</code> 或是字符串类型的键 <code>key</code> 执行 <code>GET</code> 命令：</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">redis&gt; GET db</span><br><span class="line">(nil)</span><br><span class="line"></span><br><span class="line">redis&gt; SET db redis</span><br><span class="line">OK</span><br><span class="line"></span><br><span class="line">redis&gt; GET db</span><br><span class="line">&quot;redis&quot;</span><br></pre></td></tr></table></figure>
 
+<hr>
+<p><strong>getset</strong></p>
+<p>将键 <code>key</code> 的值设为 <code>value</code> ， 并返回键 <code>key</code> 在被设置之前的旧值。</p>
+<p>如果键 <code>key</code> 没有旧值， 也即是说， 键 <code>key</code> 在被设置之前并不存在， 那么命令返回 <code>nil</code> 。</p>
+<p>当键 <code>key</code> 存在但不是字符串类型时， 命令返回一个错误。</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">redis&gt; GETSET db mongodb    # 没有旧值，返回 nil</span><br><span class="line">(nil)</span><br><span class="line"></span><br><span class="line">redis&gt; GET db</span><br><span class="line">&quot;mongodb&quot;</span><br><span class="line"></span><br><span class="line">redis&gt; GETSET db redis      # 返回旧值 mongodb</span><br><span class="line">&quot;mongodb&quot;</span><br><span class="line"></span><br><span class="line">redis&gt; GET db</span><br><span class="line">&quot;redis&quot;</span><br></pre></td></tr></table></figure>
 
+<hr>
+<p><strong>strlen</strong></p>
+<p>返回键 <code>key</code> 储存的字符串值的长度。</p>
+<p>当键 <code>key</code> 不存在时， 命令返回 <code>0</code> 。</p>
+<p>当 <code>key</code> 储存的不是字符串值时， 返回一个错误。</p>
+<p>获取字符串值的长度：</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">redis&gt; SET mykey &quot;Hello world&quot;</span><br><span class="line">OK</span><br><span class="line"></span><br><span class="line">redis&gt; STRLEN mykey</span><br><span class="line">(integer) 11</span><br></pre></td></tr></table></figure>
+<hr>
+<p><strong>append</strong></p>
+<p>如果键 <code>key</code> 已经存在并且它的值是一个字符串， <code>APPEND</code> 命令将把 <code>value</code> 追加到键 <code>key</code> 现有值的末尾。</p>
+<p>如果 <code>key</code> 不存在， <code>APPEND</code> 就简单地将键 <code>key</code> 的值设为 <code>value</code> ， 就像执行 <code>SET key value</code> 一样。</p>
+<p>对不存在的 <code>key</code> 执行 <code>APPEND</code> ：</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">redis&gt; EXISTS myphone               # 确保 myphone 不存在</span><br><span class="line">(integer) 0</span><br><span class="line"></span><br><span class="line">redis&gt; APPEND myphone &quot;nokia&quot;       # 对不存在的 key 进行 APPEND ，等同于 SET myphone &quot;nokia&quot;</span><br><span class="line">(integer) 5                         # 字符长度</span><br></pre></td></tr></table></figure>
 
+<p>对已存在的字符串进行 <code>APPEND</code> ：</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">redis&gt; APPEND myphone &quot; - 1110&quot;     # 长度从 5 个字符增加到 12 个字符</span><br><span class="line">(integer) 12</span><br><span class="line"></span><br><span class="line">redis&gt; GET myphone</span><br><span class="line">&quot;nokia - 1110&quot;</span><br></pre></td></tr></table></figure>
 
+<hr>
+<p><strong>incr</strong></p>
+<p>为键 <code>key</code> 储存的数字值加上一。</p>
+<p>如果键 <code>key</code> 不存在， 那么它的值会先被初始化为 <code>0</code> ， 然后再执行 <code>INCR</code> 命令。</p>
+<p>如果键 <code>key</code> 储存的值不能被解释为数字， 那么 <code>INCR</code> 命令将返回一个错误。</p>
+<p>本操作的值限制在 64 位(bit)有符号数字表示之内。</p>
+<p><code>INCR</code> 命令会返回键 <code>key</code> 在执行加一操作之后的值。<br>代码示例:</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">redis&gt; SET page_view 20</span><br><span class="line">OK</span><br><span class="line"></span><br><span class="line">redis&gt; INCR page_view</span><br><span class="line">(integer) 21</span><br><span class="line"></span><br><span class="line">redis&gt; GET page_view    # 数字值在 Redis 中以字符串的形式保存</span><br></pre></td></tr></table></figure>
+<hr>
+<p><strong>decr</strong></p>
+<p>功能跟incr相似，不过加1变为减1</p>
+<hr>
+<p><strong>incrby  decrby</strong></p>
+<p>对已经存在的键执行 <code>DECRBY</code> 命令：键不存在时默认初始值为0</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">redis&gt; SET count 100</span><br><span class="line">OK</span><br><span class="line"></span><br><span class="line">redis&gt; DECRBY count 20</span><br><span class="line">(integer) 80</span><br></pre></td></tr></table></figure>
 
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">redis&gt; SET rank 50</span><br><span class="line">OK</span><br><span class="line"></span><br><span class="line">redis&gt; INCRBY rank 20</span><br><span class="line">(integer) 70</span><br><span class="line"></span><br><span class="line">redis&gt; GET rank</span><br><span class="line">&quot;70&quot;</span><br></pre></td></tr></table></figure>
 
+<hr>
+<p><strong>mset  mget</strong></p>
+<p>同时对多个键进行设置：</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">redis&gt; MSET date &quot;2012.3.30&quot; time &quot;11:00 a.m.&quot; weather &quot;sunny&quot;</span><br><span class="line">OK</span><br><span class="line"></span><br><span class="line">redis&gt; MGET date time weather</span><br><span class="line">1) &quot;2012.3.30&quot;</span><br><span class="line">2) &quot;11:00 a.m.&quot;</span><br><span class="line">3) &quot;sunny&quot;</span><br></pre></td></tr></table></figure>
 
-<h3 id="模块"><a href="#模块" class="headerlink" title="模块"></a>模块</h3><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">一个python文件就是一个模块</span><br></pre></td></tr></table></figure>
-<p>#####模块间的互相引用</p>
-<p><em>怎么在一个模块中去使用另一个模块的内容：导入模块</em></p>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&quot;&quot;&quot;</span><br><span class="line">improt 模块名 - 模块名就是py文件的文件名</span><br><span class="line">导入模块中的所有内容，可以在当前模块中能使用其中的所有全局变量--以 ‘模块名.变量’的 方式去使用</span><br><span class="line">&quot;&quot;&quot;</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&quot;&quot;&quot;</span><br><span class="line">from 模块名 import 变量名1,变量名2...</span><br><span class="line">导入模块，可以在当前模块中能使用其中的指定全局变量--变量直接使用，不用加前缀</span><br><span class="line">&quot;&quot;&quot;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">redis&gt; SET redis redis.com</span><br><span class="line">OK</span><br><span class="line"></span><br><span class="line">redis&gt; SET mongodb mongodb.org</span><br><span class="line">OK</span><br><span class="line"></span><br><span class="line">redis&gt; MGET redis mongodb</span><br><span class="line">1) &quot;redis.com&quot;</span><br><span class="line">2) &quot;mongodb.org&quot;</span><br><span class="line"></span><br><span class="line">redis&gt; MGET redis mongodb mysql     # 不存在的 mysql 返回 nil</span><br><span class="line">1) &quot;redis.com&quot;</span><br><span class="line">2) &quot;mongodb.org&quot;</span><br><span class="line">3) (nil)</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&quot;&quot;&quot;</span><br><span class="line">from 模块名 import *</span><br><span class="line">导入模块中的所有内容，可以在当前模块中能使用其中的所有全局变量--变量直接使用，不用加前缀</span><br><span class="line">&quot;&quot;&quot;</span><br></pre></td></tr></table></figure>
+<hr>
 
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&quot;&quot;&quot;</span><br><span class="line">模块重命名</span><br><span class="line"></span><br><span class="line">improt 模块名 as 新模块名 --导入指定模块，并给模块重新命名；在当前模块中应使用新的						 模块名</span><br><span class="line"></span><br><span class="line">from 模块名 import 变量名 as 新变量名 --导入指定模块，并给模块重新命名；在当前模块									  中应使用新的模块名</span><br><span class="line"></span><br><span class="line">&quot;&quot;&quot;</span><br></pre></td></tr></table></figure>
-
-<p>###导入模块的原理</p>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">当我们通过import或者from import 导入模块的时候，会将该模块中的代码全部执行一遍。</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">怎么导入模块的时候选择性的执行部分代码。</span><br><span class="line"></span><br><span class="line">代码段1</span><br><span class="line">if __name__ == &apos;__main__&apos;:</span><br><span class="line">	代码段2</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">在直接执行当前模块时，两个代码段都会运行，在被调用导入时，只会执行代码段1。</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">原理：在创建py文件时，系统会自动声明一个__name__的变量，它的默认值就是&apos;文件名&apos;，当直接运行该文件时，__name__的值会自动变成&apos;__main__&apos;，执行结束变回文件名。</span><br></pre></td></tr></table></figure>
-
-
-
-<p>###常用模块</p>
-<h4 id="math"><a href="#math" class="headerlink" title="math"></a>math</h4><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">math</span><br></pre></td></tr></table></figure>
-<h4 id="time"><a href="#time" class="headerlink" title="time"></a>time</h4><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">time</span><br></pre></td></tr></table></figure>
-<h4 id="os"><a href="#os" class="headerlink" title="os"></a>os</h4><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">os</span><br></pre></td></tr></table></figure>
-<h4 id="sys"><a href="#sys" class="headerlink" title="sys"></a>sys</h4><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sys</span><br></pre></td></tr></table></figure>
-<h4 id="datetime"><a href="#datetime" class="headerlink" title="datetime"></a>datetime</h4><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">datetime</span><br></pre></td></tr></table></figure>
-<h4 id="hashlib"><a href="#hashlib" class="headerlink" title="hashlib"></a>hashlib</h4><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">hashlib是什么?</span><br><span class="line">hashlib是python提供用来产生摘要算法的模块。--摘要算法又叫哈希算法、离散算法。</span><br><span class="line">										经典算法：md5算法、sha算法</span><br><span class="line">										</span><br><span class="line">哈希算法的特点：</span><br><span class="line">			①该算法不可逆，不能根据摘要(密文)不能获取/推导原文。</span><br><span class="line">			②使用相同算法对相同的数据加密后的摘要是一样的</span><br><span class="line">			③不同长度的数据通过相同算法加密后产生的摘要的长度是一样的。</span><br><span class="line">			</span><br><span class="line">怎么生成密文/摘要：</span><br><span class="line">import hashlib</span><br><span class="line"></span><br><span class="line"># 1.根据算法创建对象</span><br><span class="line">hash1 = hashlib.md5()</span><br><span class="line"></span><br><span class="line"># 2.对数据进行加密 --指定加密数据，转换成二进制数据</span><br><span class="line">hash1.update(&apos;123456&apos;.encode())</span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line">补充：二进制数据和字符串的相互转换</span><br><span class="line">    二进制数据：bytes</span><br><span class="line">    字符串转二进制：bytes(字符串，encoding=&apos;utf-8&apos;) / 字符串.encode()</span><br><span class="line">    二进制转字符串：str(二进制，encoding=&apos;utf-8&apos;) / 二进制.decode(encoding=&apos;utf-8&apos;)</span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line"></span><br><span class="line"># 3.获取摘要 -- 哈希对象.hexdigest()</span><br><span class="line">pw = hash1.hexdigest()</span><br><span class="line">print(pw)</span><br></pre></td></tr></table></figure>
-<h4 id="calendar"><a href="#calendar" class="headerlink" title="calendar"></a>calendar</h4><p>此模块的函数都是日历相关的，例如打印某月的字符月历。</p>
-<p>星期一是默认的每周第一天，星期天是默认的最后一天。</p>
-<p>#####calendar.calendar(year,w,l,c)</p>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">calendar.calendar(year,w=2,l=1,c=6)</span><br><span class="line">返回一个多行字符串格式的year年年历，3个月一行，间隔距离为c。 每日宽度间隔为w字符。每行长度为21* W+18+2* C。l是每星期行数。都有默认值</span><br></pre></td></tr></table></figure>
-
-<h5 id="calendar-isleap-year"><a href="#calendar-isleap-year" class="headerlink" title="calendar.isleap(year)"></a>calendar.isleap(year)</h5><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">import calendar</span><br><span class="line">print(calendar.isleap(2000)) # True</span><br><span class="line">print(calendar.isleap(1900)) # False</span><br><span class="line">是闰年返回 True，否则为 false。</span><br></pre></td></tr></table></figure>
-
-<h5 id="calendar-leapdays-year1-year2"><a href="#calendar-leapdays-year1-year2" class="headerlink" title="calendar.leapdays(year1,year2)"></a>calendar.leapdays(year1,year2)</h5><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">返回在Y1，Y2两年之间的闰年总数。</span><br></pre></td></tr></table></figure>
-
-<h5 id="calendar-monthrange-year-month"><a href="#calendar-monthrange-year-month" class="headerlink" title="calendar.monthrange(year,month)"></a>calendar.monthrange(year,month)</h5><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">返回两个整数。第一个是该月的星期几，第二个是该月有几天。星期几是从0（星期一）到 6（星期日）。</span><br><span class="line">&gt;&gt;&gt; import calendar</span><br><span class="line">&gt;&gt;&gt; calendar.monthrange(2014, 11)</span><br><span class="line">(5, 30)</span><br><span class="line"></span><br><span class="line">(5, 30)解释：5 表示 2014 年 11 月份的第一天是周六，30 表示 2014 年 11 月份总共有 30 天。</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-
-
-
-<h3 id="时间戳"><a href="#时间戳" class="headerlink" title="时间戳"></a>时间戳</h3><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">时间戳--&gt;两个时间的差值，用当前时间减去1970年1月1日0时0分0秒的差值，用单位秒来表示</span><br></pre></td></tr></table></figure>
-
-
+        </div>
+        
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/Redis/" rel="tag">Redis</a>
+                </div>
+            </div>
         </div>
         
         
@@ -282,16 +302,16 @@
     <div class="level post-navigation is-flex-wrap is-mobile">
         
         <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/2019/10/26/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E5%9F%BA%E7%A1%80/">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/2019/10/31/Redis%E4%B8%AD%E7%9A%84%E5%93%88%E5%B8%8C%E8%A1%A8/">
                 <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">面向对象基础</span>
+                <span class="level-item">Redis中的哈希表</span>
             </a>
         </div>
         
         
         <div class="level-end">
-            <a class="level level-item has-link-grey  article-nav-next" href="/2019/10/26/%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C%E4%BB%A5%E5%8F%8Ajson%E6%96%87%E4%BB%B6/">
-                <span class="level-item">文件操作以及json文件</span>
+            <a class="level level-item has-link-grey  article-nav-next" href="/2019/10/29/MySQL%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84CRUD%E5%92%8Cpymysql%E7%9A%84%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/">
+                <span class="level-item">MySQL数据库的CRUD和pymysql的简单使用</span>
                 <i class="level-item fas fa-chevron-right"></i>
             </a>
         </div>
@@ -307,8 +327,8 @@
         
 <script>
     var disqus_config = function () {
-        this.page.url = 'http://yoursite.com/2019/10/26/%E5%BC%82%E5%B8%B8%E6%8D%95%E8%8E%B7/';
-        this.page.identifier = '2019/10/26/异常捕获/';
+        this.page.url = 'http://yoursite.com/2019/10/31/Redis%E4%B8%AD%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2/';
+        this.page.identifier = '2019/10/31/Redis中的字符串/';
     };
     (function() {
         var d = document, s = d.createElement('script');  
@@ -1001,7 +1021,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo_panda.png" alt="异常捕获" height="28">
+                    <img src="/images/logo_panda.png" alt="Redis中的字符串" height="28">
                 
                 </a>
                 <p class="is-size-7">
