@@ -11,13 +11,16 @@
 <title>Redis中的哈希表 - 想和你一起看下雨</title>
 
 
-    <meta property="og:type" content="article">
+    <meta name="description" content="Redis hash是一个string类型的field和value的映射表，hash特别适合用于存储对象。 Redis 中每个 hash 可以存储 232 - 1 键值对（40多亿）。 这个方法适合存放对象，因为一个对象一个名字，然后里面的键值对对应对象的各属性和对应的值。存储类型大致为{key:(key1:value1,key1:value1,key1:value1)} 注意：Redis对公网开">
+<meta name="keywords" content="Redis">
+<meta property="og:type" content="article">
 <meta property="og:title" content="Redis中的哈希表">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;10&#x2F;31&#x2F;Redis%E4%B8%AD%E7%9A%84%E5%93%88%E5%B8%8C%E8%A1%A8&#x2F;index.html">
 <meta property="og:site_name" content="想和你一起看下雨">
+<meta property="og:description" content="Redis hash是一个string类型的field和value的映射表，hash特别适合用于存储对象。 Redis 中每个 hash 可以存储 232 - 1 键值对（40多亿）。 这个方法适合存放对象，因为一个对象一个名字，然后里面的键值对对应对象的各属性和对应的值。存储类型大致为{key:(key1:value1,key1:value1,key1:value1)} 注意：Redis对公网开">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;og_image.png">
-<meta property="og:updated_time" content="2019-10-31T08:45:00.042Z">
+<meta property="og:updated_time" content="2019-11-02T08:00:22.816Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;og_image.png">
 
@@ -135,11 +138,15 @@
             <div class="level-left">
                 <time class="level-item has-text-grey" datetime="2019-10-31T08:45:00.000Z">2019-10-31</time>
                 
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/Redis/">Redis</a>
+                </div>
+                
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    几秒 读完 (大约 0 个字)
+                    5 分钟 读完 (大约 739 个字)
                 </span>
                 
                 
@@ -152,7 +159,87 @@
             
         </h1>
         <div class="content">
-            
+            <p>Redis hash是一个string类型的field和value的映射表，hash特别适合用于存储对象。</p>
+<p>Redis 中每个 hash 可以存储 232 - 1 键值对（40多亿）。</p>
+<p>这个方法适合存放对象，因为一个对象一个名字，然后里面的键值对对应对象的各属性和对应的值。存储类型大致为{key:(key1:value1,key1:value1,key1:value1)}</p>
+<p>注意：Redis对公网开放很危险，需设置密码，可在Redis界面敲以下命令设置密码：</p>
+<blockquote>
+<p>config set requirepass 密码</p>
+</blockquote>
+<blockquote>
+<p>config get requirepass 来获取密码</p>
+</blockquote>
+<a id="more"></a>
+
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt;  HMSET runoobkey name &quot;redis tutorial&quot; description &quot;redis basic commands for caching&quot; likes 20 visitors 23000</span><br><span class="line">OK</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt;  HGETALL runoobkey</span><br><span class="line">1) &quot;name&quot;</span><br><span class="line">2) &quot;redis tutorial&quot;</span><br><span class="line">3) &quot;description&quot;</span><br><span class="line">4) &quot;redis basic commands for caching&quot;</span><br><span class="line">5) &quot;likes&quot;</span><br><span class="line">6) &quot;20&quot;</span><br><span class="line">7) &quot;visitors&quot;</span><br><span class="line">8) &quot;23000&quot;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>在以上实例中，我们设置了 redis 的一些描述信息(name, description, likes, visitors) 到哈希表的 <strong>runoobkey</strong> 中</p>
+</blockquote>
+<p>在Redis hash中我们常用的函数有以下一些：</p>
+<hr>
+<p><strong>hset/HSET</strong></p>
+<p>用法：hset key field value</p>
+<p>作用：将哈希表key中的字段field的值设置为value</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hset people name tang</span><br></pre></td></tr></table></figure>
+<hr>
+<p><strong>hget/HGET</strong></p>
+<p>用法：hget key field</p>
+<p>作用：获取存储在哈希表中指定字段的值</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; hget people name</span><br><span class="line">&quot;tang&quot;</span><br></pre></td></tr></table></figure>
+<hr>
+<p><strong>hmset/HMSET</strong></p>
+<p>用法：hmset key field1 value1 field2 value2 field3 value3 …</p>
+<p>作用：将哈希表key中的字段field的值设置为value</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; hmset people name tang age 18 sex man</span><br></pre></td></tr></table></figure>
+<hr>
+<p><strong>hmget/HMGET</strong></p>
+<p>用法：hmget key field1 field2 …</p>
+<p>作用：获取所有存储在哈希表中指定字段的值</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; hmget people name age sex</span><br><span class="line">1) &quot;tang&quot;</span><br><span class="line">2) &quot;18&quot;</span><br><span class="line">3) &quot;man&quot;</span><br></pre></td></tr></table></figure>
+<hr>
+<p><strong>hgetall/HGETALL</strong></p>
+<p>用法：hgetall key </p>
+<p>作用：获取在哈希表中指定 key 的所有字段和值</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; hgetall people</span><br><span class="line">1) &quot;name&quot;</span><br><span class="line">2) &quot;tang&quot;</span><br><span class="line">3) &quot;age&quot;</span><br><span class="line">4) &quot;18&quot;</span><br><span class="line">5) &quot;sex&quot;</span><br><span class="line">6) &quot;man&quot;</span><br></pre></td></tr></table></figure>
+<hr>
+<p><strong>hvals/HVALS</strong></p>
+<p>用法：hvals key </p>
+<p>作用：获取在哈希表中指定 key 的所有值</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; hvals people</span><br><span class="line">1) &quot;tang&quot;</span><br><span class="line">2) &quot;18&quot;</span><br><span class="line">3) &quot;man&quot;</span><br></pre></td></tr></table></figure>
+<hr>
+<p><strong>hkeys/HKEYS</strong></p>
+<p>用法：hkeys key </p>
+<p>作用：获取在哈希表中指定 key 的所有字段</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; hkeys people</span><br><span class="line">1) &quot;name&quot;</span><br><span class="line">2) &quot;age&quot;</span><br><span class="line">3) &quot;sex&quot;</span><br></pre></td></tr></table></figure>
+<hr>
+<p><strong>hlen/HLEN</strong></p>
+<p>用法：hgetall key<br>作用：获取在哈希表中指定 key 的键值对的个数</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; hlen people</span><br><span class="line">(integer) 3</span><br></pre></td></tr></table></figure>
+<hr>
+<p><strong>hexists/HEXISTS</strong></p>
+<p>用法：hexists key field</p>
+<p>作用：查看哈希表 key 中，指定的字段是否存在。</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 这里在检查people表中是否有name字段，返回为1，则表示有</span><br><span class="line">127.0.0.1:6379&gt; hexists people name</span><br><span class="line">(integer) 1</span><br><span class="line"># 这里在检查people表中是否有addr字段，返回为0，则表示没有</span><br><span class="line">127.0.0.1:6379&gt; hexists people addr</span><br><span class="line">(integer) 0</span><br></pre></td></tr></table></figure>
+<hr>
+<p><strong>hdel/HDEL</strong></p>
+<p>用法：hdel key field [field]</p>
+<p>作用：删除一个或多个哈希表字段</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># 这里在删除people表中的name字段</span><br><span class="line">127.0.0.1:6379&gt; hdel people name</span><br><span class="line">(integer) 1</span><br><span class="line">127.0.0.1:6379&gt; hgetall people</span><br><span class="line">1) &quot;age&quot;</span><br><span class="line">2) &quot;18&quot;</span><br><span class="line">3) &quot;sex&quot;</span><br><span class="line">4) &quot;man&quot;</span><br></pre></td></tr></table></figure>
+<hr>
+<p><strong>hsetnx/HSETNX</strong></p>
+<p>用法：hsetnx key field value </p>
+<p>作用：只有在字段 field 不存在时，设置哈希表字段的值。</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"># 这里在添加age=19的字段，显示为0，未添加成功，因为原有hash表中有age这个字段</span><br><span class="line">127.0.0.1:6379&gt; hsetnx people age 19</span><br><span class="line">(integer) 0</span><br><span class="line"># 这里在添加name=tang的字段，显示为1，添加成功，因为原有hash表中没有name这个字段</span><br><span class="line">127.0.0.1:6379&gt; hsetnx people name tang</span><br><span class="line">(integer) 1</span><br><span class="line"># 打印所有字段和值</span><br><span class="line">127.0.0.1:6379&gt; hgetall people</span><br><span class="line">1) &quot;age&quot;</span><br><span class="line">2) &quot;18&quot;</span><br><span class="line">3) &quot;sex&quot;</span><br><span class="line">4) &quot;man&quot;</span><br><span class="line">5) &quot;name&quot;</span><br><span class="line">6) &quot;tang&quot;</span><br></pre></td></tr></table></figure>
+        </div>
+        
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/Redis/" rel="tag">Redis</a>
+                </div>
+            </div>
         </div>
         
         
@@ -287,7 +374,7 @@
                         文章
                     </p>
                     <p class="title has-text-weight-normal">
-                        30
+                        29
                     </p>
                 </div>
             </div>
@@ -297,7 +384,7 @@
                         分类
                     </p>
                     <p class="title has-text-weight-normal">
-                        15
+                        16
                     </p>
                 </div>
             </div>
@@ -413,6 +500,14 @@
             </span>
             <span class="level-end">
                 <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Redis/">
+            <span class="level-start">
+                <span class="level-item">Redis</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">2</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/categories/Redis%E4%B8%AD%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2/">
@@ -532,7 +627,7 @@
         <h3 class="menu-label">
             标签云
         </h3>
-        <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/pymysql/" style="font-size: 10px;">pymysql</a>
+        <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/Redis/" style="font-size: 20px;">Redis</a> <a href="/tags/pymysql/" style="font-size: 10px;">pymysql</a>
     </div>
 </div>
         
@@ -541,25 +636,6 @@
         <h3 class="menu-label">
             最新文章
         </h3>
-        
-        <article class="media">
-            
-            <a href="/2019/10/31/Redis%E4%B8%AD%E7%9A%84%E9%9B%86%E5%90%88/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Redis中的集合">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-31T08:45:27.000Z">2019-10-31</time></div>
-                    <a href="/2019/10/31/Redis%E4%B8%AD%E7%9A%84%E9%9B%86%E5%90%88/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Redis中的集合</a>
-                    <p class="is-size-7 is-uppercase">
-                        
-                    </p>
-                </div>
-            </div>
-        </article>
         
         <article class="media">
             
@@ -574,7 +650,7 @@
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-31T08:45:14.000Z">2019-10-31</time></div>
                     <a href="/2019/10/31/Redis%E4%B8%AD%E7%9A%84%E5%88%97%E8%A1%A8/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Redis中的列表</a>
                     <p class="is-size-7 is-uppercase">
-                        
+                        <a class="has-link-grey -link" href="/categories/Redis/">Redis</a>
                     </p>
                 </div>
             </div>
@@ -593,7 +669,7 @@
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-31T08:45:00.000Z">2019-10-31</time></div>
                     <a href="/2019/10/31/Redis%E4%B8%AD%E7%9A%84%E5%93%88%E5%B8%8C%E8%A1%A8/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Redis中的哈希表</a>
                     <p class="is-size-7 is-uppercase">
-                        
+                        <a class="has-link-grey -link" href="/categories/Redis/">Redis</a>
                     </p>
                 </div>
             </div>
@@ -637,6 +713,25 @@
             </div>
         </article>
         
+        <article class="media">
+            
+            <a href="/2019/10/26/HTML%E5%9F%BA%E7%A1%80/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="HTML基础">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-26T09:21:12.446Z">2019-10-26</time></div>
+                    <a href="/2019/10/26/HTML%E5%9F%BA%E7%A1%80/" class="title has-link-black-ter is-size-6 has-text-weight-normal">HTML基础</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/HTML%E5%9F%BA%E7%A1%80/">HTML基础</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
     </div>
 </div>
         
@@ -654,7 +749,7 @@
                     <span class="level-item">十月 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">30</span>
+                    <span class="level-item tag">29</span>
                 </span>
             </a>
         </li>
@@ -696,7 +791,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/Redis/">
                         <span class="tag">Redis</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag is-grey">3</span>
                     </a>
                 </div>
                 
@@ -728,7 +823,7 @@
         <h3 class="menu-label">
             标签云
         </h3>
-        <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/pymysql/" style="font-size: 10px;">pymysql</a>
+        <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/Redis/" style="font-size: 20px;">Redis</a> <a href="/tags/pymysql/" style="font-size: 10px;">pymysql</a>
     </div>
 </div>
     
@@ -737,25 +832,6 @@
         <h3 class="menu-label">
             最新文章
         </h3>
-        
-        <article class="media">
-            
-            <a href="/2019/10/31/Redis%E4%B8%AD%E7%9A%84%E9%9B%86%E5%90%88/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Redis中的集合">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-31T08:45:27.000Z">2019-10-31</time></div>
-                    <a href="/2019/10/31/Redis%E4%B8%AD%E7%9A%84%E9%9B%86%E5%90%88/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Redis中的集合</a>
-                    <p class="is-size-7 is-uppercase">
-                        
-                    </p>
-                </div>
-            </div>
-        </article>
         
         <article class="media">
             
@@ -770,7 +846,7 @@
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-31T08:45:14.000Z">2019-10-31</time></div>
                     <a href="/2019/10/31/Redis%E4%B8%AD%E7%9A%84%E5%88%97%E8%A1%A8/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Redis中的列表</a>
                     <p class="is-size-7 is-uppercase">
-                        
+                        <a class="has-link-grey -link" href="/categories/Redis/">Redis</a>
                     </p>
                 </div>
             </div>
@@ -789,7 +865,7 @@
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-31T08:45:00.000Z">2019-10-31</time></div>
                     <a href="/2019/10/31/Redis%E4%B8%AD%E7%9A%84%E5%93%88%E5%B8%8C%E8%A1%A8/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Redis中的哈希表</a>
                     <p class="is-size-7 is-uppercase">
-                        
+                        <a class="has-link-grey -link" href="/categories/Redis/">Redis</a>
                     </p>
                 </div>
             </div>
@@ -833,6 +909,25 @@
             </div>
         </article>
         
+        <article class="media">
+            
+            <a href="/2019/10/26/HTML%E5%9F%BA%E7%A1%80/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="HTML基础">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-26T09:21:12.446Z">2019-10-26</time></div>
+                    <a href="/2019/10/26/HTML%E5%9F%BA%E7%A1%80/" class="title has-link-black-ter is-size-6 has-text-weight-normal">HTML基础</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/HTML%E5%9F%BA%E7%A1%80/">HTML基础</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
     </div>
 </div>
     
@@ -850,7 +945,7 @@
                     <span class="level-item">十月 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">30</span>
+                    <span class="level-item tag">29</span>
                 </span>
             </a>
         </li>
@@ -892,7 +987,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/Redis/">
                         <span class="tag">Redis</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag is-grey">3</span>
                     </a>
                 </div>
                 

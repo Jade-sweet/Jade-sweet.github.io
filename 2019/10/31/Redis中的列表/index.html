@@ -11,13 +11,16 @@
 <title>Redis中的列表 - 想和你一起看下雨</title>
 
 
-    <meta property="og:type" content="article">
+    <meta name="description" content="Redis列表是简单的字符串列表，按照插入顺序排序。你可以添加一个元素到列表的头部（左边）或者尾部（右边） 一个列表最多可以包含 232 - 1 个元素 (4294967295, 每个列表超过40亿个元素)。">
+<meta name="keywords" content="Redis">
+<meta property="og:type" content="article">
 <meta property="og:title" content="Redis中的列表">
 <meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;10&#x2F;31&#x2F;Redis%E4%B8%AD%E7%9A%84%E5%88%97%E8%A1%A8&#x2F;index.html">
 <meta property="og:site_name" content="想和你一起看下雨">
+<meta property="og:description" content="Redis列表是简单的字符串列表，按照插入顺序排序。你可以添加一个元素到列表的头部（左边）或者尾部（右边） 一个列表最多可以包含 232 - 1 个元素 (4294967295, 每个列表超过40亿个元素)。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;og_image.png">
-<meta property="og:updated_time" content="2019-10-31T08:45:14.485Z">
+<meta property="og:updated_time" content="2019-11-02T09:03:38.486Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;og_image.png">
 
@@ -135,11 +138,15 @@
             <div class="level-left">
                 <time class="level-item has-text-grey" datetime="2019-10-31T08:45:14.000Z">2019-10-31</time>
                 
+                <div class="level-item">
+                <a class="has-link-grey -link" href="/categories/Redis/">Redis</a>
+                </div>
+                
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    几秒 读完 (大约 0 个字)
+                    5 分钟 读完 (大约 810 个字)
                 </span>
                 
                 
@@ -152,7 +159,57 @@
             
         </h1>
         <div class="content">
-            
+            <p>Redis列表是简单的字符串列表，按照插入顺序排序。你可以添加一个元素到列表的头部（左边）或者尾部（右边）</p>
+<p>一个列表最多可以包含 232 - 1 个元素 (4294967295, 每个列表超过40亿个元素)。</p>
+<a id="more"></a>
+
+<h3 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h3><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">redis 127.0.0.1:6379&gt; LPUSH runoobkey redis</span><br><span class="line">(integer) 1</span><br><span class="line">redis 127.0.0.1:6379&gt; LPUSH runoobkey mongodb</span><br><span class="line">(integer) 2</span><br><span class="line">redis 127.0.0.1:6379&gt; LPUSH runoobkey mysql</span><br><span class="line">(integer) 3</span><br><span class="line">redis 127.0.0.1:6379&gt; LRANGE runoobkey 0 10</span><br><span class="line"></span><br><span class="line">1) &quot;mysql&quot;</span><br><span class="line">2) &quot;mongodb&quot;</span><br><span class="line">3) &quot;redis&quot;</span><br></pre></td></tr></table></figure>
+
+<p>在以上实例中我们使用了 <strong>lpush</strong> 将三个值插入了名为 <strong>runoobkey</strong> 的列表当中。</p>
+<p>Redis列表常用的函数有以下一些：</p>
+<hr>
+<p><strong>lpush</strong><br>方法：lpush key value1 [value2]<br>作用：将一个或多个值插入到列表头部</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; lpush num1 10 20 30 40 50 60</span><br><span class="line">(integer) 6</span><br><span class="line">127.0.0.1:6379&gt; lrange num1 0 -1</span><br><span class="line">1) &quot;60&quot;</span><br><span class="line">2) &quot;50&quot;</span><br><span class="line">3) &quot;40&quot;</span><br><span class="line">4) &quot;30&quot;</span><br><span class="line">5) &quot;20&quot;</span><br><span class="line">6) &quot;10&quot;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<p><strong>rpush</strong><br>方法：rpush key value1 [value2]<br>作用：将一个或多个值插入到列表尾部</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; rpush num2 10 20 30 40 50 60</span><br><span class="line">(integer) 6</span><br><span class="line">127.0.0.1:6379&gt; lrange num2 0 -1</span><br><span class="line">1) &quot;10&quot;</span><br><span class="line">2) &quot;20&quot;</span><br><span class="line">3) &quot;30&quot;</span><br><span class="line">4) &quot;40&quot;</span><br><span class="line">5) &quot;50&quot;</span><br><span class="line">6) &quot;60&quot;</span><br></pre></td></tr></table></figure>
+<hr>
+<p><strong>lpop</strong><br>方法：lpop key<br>作用：移出并获取列表的第一个元素，返回值为移除的元素。</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; lpop num1</span><br><span class="line">&quot;60&quot;</span><br></pre></td></tr></table></figure>
+<hr>
+<p><strong>rpop</strong><br>方法：rpop<br>作用：移出并获取列表的最后一个元素，返回值为移除的元素。</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; rpop num1</span><br><span class="line">&quot;10&quot;</span><br></pre></td></tr></table></figure>
+<hr>
+<p><strong>brpop</strong><br>方法：brpop key timeout<br>作用：移出并获取列表的最后一个元素， 如果列表没有元素会阻塞列表直到等待超时或发现可弹出元素为止。</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"># 弹出列表末尾的一个元素</span><br><span class="line">127.0.0.1:6379&gt; brpop num1 3600</span><br><span class="line">1) &quot;num1&quot;</span><br><span class="line">2) &quot;20&quot;</span><br><span class="line"># 弹出列表末尾的一个元素</span><br><span class="line">127.0.0.1:6379&gt; brpop num1 3600</span><br><span class="line">1) &quot;num1&quot;</span><br><span class="line">2) &quot;30&quot;</span><br><span class="line"># 弹出列表末尾的一个元素</span><br><span class="line">127.0.0.1:6379&gt; brpop num1 3600</span><br><span class="line">1) &quot;num1&quot;</span><br><span class="line">2) &quot;40&quot;</span><br><span class="line"># 弹出列表末尾的一个元素</span><br><span class="line">127.0.0.1:6379&gt; brpop num1 3600</span><br><span class="line">1) &quot;num1&quot;</span><br><span class="line">2) &quot;50&quot;</span><br><span class="line"># 弹出列表末尾的一个元素，此时列表没有元素，会阻塞在这个地方等待元素的加入或者超时后退出</span><br><span class="line">127.0.0.1:6379&gt; brpop num1 3600</span><br></pre></td></tr></table></figure>
+<hr>
+<p><strong>blpop</strong><br>方法：blpop key timeout<br>作用：移出并获取列表的第一个元素， 如果列表没有元素会阻塞列表直到等待超时或发现可弹出元素为止。</p>
+<p>方法跟brpop一致，不过这个是从左边弹出</p>
+<hr>
+<p><strong>lrange</strong><br>方法：lrange key start_index stop_index<br>作用：返回列表开始下标和结束下标对应的元素</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; lpush num1 10 20 30 40 50 60</span><br><span class="line">(integer) 6</span><br><span class="line"># 查看下标1~3对应的列表元素</span><br><span class="line">127.0.0.1:6379&gt; lrange num1 1 3</span><br><span class="line">1) &quot;50&quot;</span><br><span class="line">2) &quot;40&quot;</span><br><span class="line">3) &quot;30&quot;</span><br></pre></td></tr></table></figure>
+<hr>
+<p><strong>lrem</strong><br>方法：lrem key count value<br>作用：移除列表元素,若指定count，则最多移除count个value</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"># 向num3中加入元素</span><br><span class="line">127.0.0.1:6379&gt; lpush num3 10 20 10 30 40 50 10 10 </span><br><span class="line">(integer) 8</span><br><span class="line"># 从左边开始删除2个值为10的元素</span><br><span class="line">127.0.0.1:6379&gt; lrem num3 2 10</span><br><span class="line">(integer) 2</span><br><span class="line"># 查看删除元素后的列表</span><br><span class="line">127.0.0.1:6379&gt; lrange num3 0 -1</span><br><span class="line">1) &quot;50&quot;</span><br><span class="line">2) &quot;40&quot;</span><br><span class="line">3) &quot;30&quot;</span><br><span class="line">4) &quot;10&quot;</span><br><span class="line">5) &quot;20&quot;</span><br><span class="line">6) &quot;10&quot;</span><br></pre></td></tr></table></figure>
+<hr>
+<p><strong>lindex</strong><br>方法：lindex key index<br>作用：通过索引获取列表中的元素</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; lpush num1 10 20 30 40 50 60</span><br><span class="line">(integer) 6</span><br><span class="line">127.0.0.1:6379&gt; lrange num1 1 3</span><br><span class="line">1) &quot;50&quot;</span><br><span class="line">2) &quot;40&quot;</span><br><span class="line">3) &quot;30&quot;</span><br></pre></td></tr></table></figure>
+<hr>
+<p><strong>linsert</strong><br>方法：linsert key before/after value<br>作用：在列表的元素前或者后插入元素</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"># 查看列表num3的所有元素</span><br><span class="line">127.0.0.1:6379&gt; lrange num3 0 -1</span><br><span class="line">1) &quot;50&quot;</span><br><span class="line">2) &quot;40&quot;</span><br><span class="line">3) &quot;30&quot;</span><br><span class="line">4) &quot;10&quot;</span><br><span class="line">5) &quot;20&quot;</span><br><span class="line">6) &quot;10&quot;</span><br><span class="line"># 在元素20之前增加一个元素100，返回值7，表示成功</span><br><span class="line">127.0.0.1:6379&gt; linsert num3 before 20 100</span><br><span class="line">(integer) 7</span><br><span class="line"></span><br><span class="line">127.0.0.1:6379&gt; lrange num3 0 -1</span><br><span class="line">1) &quot;50&quot;</span><br><span class="line">2) &quot;40&quot;</span><br><span class="line">3) &quot;30&quot;</span><br><span class="line">4) &quot;10&quot;</span><br><span class="line">5) &quot;100&quot;</span><br><span class="line">6) &quot;20&quot;</span><br><span class="line">7) &quot;10&quot;</span><br><span class="line"># 在元素10之前增加一个元素200，返回值8，表示成功，不过它只在第一个10前面加，有效次数只有一次</span><br><span class="line">127.0.0.1:6379&gt; linsert num3 before 0 200</span><br><span class="line">(integer) 8</span><br><span class="line">127.0.0.1:6379&gt; lrange num3 0 -1</span><br><span class="line">1) &quot;200&quot;</span><br><span class="line">2) &quot;40&quot;</span><br><span class="line">3) &quot;30&quot;</span><br><span class="line">4) &quot;200&quot;</span><br><span class="line">5) &quot;10&quot;</span><br><span class="line">6) &quot;100&quot;</span><br><span class="line">7) &quot;20&quot;</span><br><span class="line">8) &quot;10&quot;</span><br></pre></td></tr></table></figure>
+<hr>
+<p><strong>lset</strong><br>方法：lset key index value<br>作用：通过索引设置列表元素的值</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"># 查看设置前的元素的值</span><br><span class="line">127.0.0.1:6379&gt; lrange num3 0 -1</span><br><span class="line">1) &quot;50&quot;</span><br><span class="line">2) &quot;40&quot;</span><br><span class="line">3) &quot;30&quot;</span><br><span class="line">4) &quot;10&quot;</span><br><span class="line">5) &quot;100&quot;</span><br><span class="line">6) &quot;20&quot;</span><br><span class="line">7) &quot;10&quot;</span><br><span class="line"># 设置下标为0的元素的值为200 </span><br><span class="line">127.0.0.1:6379&gt; lset num3 0 200</span><br><span class="line">OK</span><br><span class="line"># 查看设置后的元素的值</span><br><span class="line">127.0.0.1:6379&gt; lrange num3 0 -1</span><br><span class="line">1) &quot;200&quot;</span><br><span class="line">2) &quot;40&quot;</span><br><span class="line">3) &quot;30&quot;</span><br><span class="line">4) &quot;10&quot;</span><br><span class="line">5) &quot;100&quot;</span><br><span class="line">6) &quot;20&quot;</span><br><span class="line">7) &quot;10&quot;</span><br></pre></td></tr></table></figure>
+        </div>
+        
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/Redis/" rel="tag">Redis</a>
+                </div>
+            </div>
         </div>
         
         
@@ -199,13 +256,6 @@
 
 <div class="card card-transparent">
     <div class="level post-navigation is-flex-wrap is-mobile">
-        
-        <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/2019/10/31/Redis%E4%B8%AD%E7%9A%84%E9%9B%86%E5%90%88/">
-                <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">Redis中的集合</span>
-            </a>
-        </div>
         
         
         <div class="level-end">
@@ -287,7 +337,7 @@
                         文章
                     </p>
                     <p class="title has-text-weight-normal">
-                        30
+                        29
                     </p>
                 </div>
             </div>
@@ -297,7 +347,7 @@
                         分类
                     </p>
                     <p class="title has-text-weight-normal">
-                        15
+                        16
                     </p>
                 </div>
             </div>
@@ -413,6 +463,14 @@
             </span>
             <span class="level-end">
                 <span class="level-item tag">1</span>
+            </span>
+        </a></li><li>
+        <a class="level is-marginless" href="/categories/Redis/">
+            <span class="level-start">
+                <span class="level-item">Redis</span>
+            </span>
+            <span class="level-end">
+                <span class="level-item tag">2</span>
             </span>
         </a></li><li>
         <a class="level is-marginless" href="/categories/Redis%E4%B8%AD%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2/">
@@ -532,7 +590,7 @@
         <h3 class="menu-label">
             标签云
         </h3>
-        <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/pymysql/" style="font-size: 10px;">pymysql</a>
+        <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/Redis/" style="font-size: 20px;">Redis</a> <a href="/tags/pymysql/" style="font-size: 10px;">pymysql</a>
     </div>
 </div>
         
@@ -541,25 +599,6 @@
         <h3 class="menu-label">
             最新文章
         </h3>
-        
-        <article class="media">
-            
-            <a href="/2019/10/31/Redis%E4%B8%AD%E7%9A%84%E9%9B%86%E5%90%88/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Redis中的集合">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-31T08:45:27.000Z">2019-10-31</time></div>
-                    <a href="/2019/10/31/Redis%E4%B8%AD%E7%9A%84%E9%9B%86%E5%90%88/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Redis中的集合</a>
-                    <p class="is-size-7 is-uppercase">
-                        
-                    </p>
-                </div>
-            </div>
-        </article>
         
         <article class="media">
             
@@ -574,7 +613,7 @@
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-31T08:45:14.000Z">2019-10-31</time></div>
                     <a href="/2019/10/31/Redis%E4%B8%AD%E7%9A%84%E5%88%97%E8%A1%A8/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Redis中的列表</a>
                     <p class="is-size-7 is-uppercase">
-                        
+                        <a class="has-link-grey -link" href="/categories/Redis/">Redis</a>
                     </p>
                 </div>
             </div>
@@ -593,7 +632,7 @@
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-31T08:45:00.000Z">2019-10-31</time></div>
                     <a href="/2019/10/31/Redis%E4%B8%AD%E7%9A%84%E5%93%88%E5%B8%8C%E8%A1%A8/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Redis中的哈希表</a>
                     <p class="is-size-7 is-uppercase">
-                        
+                        <a class="has-link-grey -link" href="/categories/Redis/">Redis</a>
                     </p>
                 </div>
             </div>
@@ -637,6 +676,25 @@
             </div>
         </article>
         
+        <article class="media">
+            
+            <a href="/2019/10/26/HTML%E5%9F%BA%E7%A1%80/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="HTML基础">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-26T09:21:12.446Z">2019-10-26</time></div>
+                    <a href="/2019/10/26/HTML%E5%9F%BA%E7%A1%80/" class="title has-link-black-ter is-size-6 has-text-weight-normal">HTML基础</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/HTML%E5%9F%BA%E7%A1%80/">HTML基础</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
     </div>
 </div>
         
@@ -654,7 +712,7 @@
                     <span class="level-item">十月 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">30</span>
+                    <span class="level-item tag">29</span>
                 </span>
             </a>
         </li>
@@ -696,7 +754,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/Redis/">
                         <span class="tag">Redis</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag is-grey">3</span>
                     </a>
                 </div>
                 
@@ -728,7 +786,7 @@
         <h3 class="menu-label">
             标签云
         </h3>
-        <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/Redis/" style="font-size: 10px;">Redis</a> <a href="/tags/pymysql/" style="font-size: 10px;">pymysql</a>
+        <a href="/tags/HTML/" style="font-size: 10px;">HTML</a> <a href="/tags/Linux/" style="font-size: 10px;">Linux</a> <a href="/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/tags/Redis/" style="font-size: 20px;">Redis</a> <a href="/tags/pymysql/" style="font-size: 10px;">pymysql</a>
     </div>
 </div>
     
@@ -737,25 +795,6 @@
         <h3 class="menu-label">
             最新文章
         </h3>
-        
-        <article class="media">
-            
-            <a href="/2019/10/31/Redis%E4%B8%AD%E7%9A%84%E9%9B%86%E5%90%88/" class="media-left">
-                <p class="image is-64x64">
-                    <img class="thumbnail" src="/images/thumbnail.svg" alt="Redis中的集合">
-                </p>
-            </a>
-            
-            <div class="media-content">
-                <div class="content">
-                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-31T08:45:27.000Z">2019-10-31</time></div>
-                    <a href="/2019/10/31/Redis%E4%B8%AD%E7%9A%84%E9%9B%86%E5%90%88/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Redis中的集合</a>
-                    <p class="is-size-7 is-uppercase">
-                        
-                    </p>
-                </div>
-            </div>
-        </article>
         
         <article class="media">
             
@@ -770,7 +809,7 @@
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-31T08:45:14.000Z">2019-10-31</time></div>
                     <a href="/2019/10/31/Redis%E4%B8%AD%E7%9A%84%E5%88%97%E8%A1%A8/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Redis中的列表</a>
                     <p class="is-size-7 is-uppercase">
-                        
+                        <a class="has-link-grey -link" href="/categories/Redis/">Redis</a>
                     </p>
                 </div>
             </div>
@@ -789,7 +828,7 @@
                     <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-31T08:45:00.000Z">2019-10-31</time></div>
                     <a href="/2019/10/31/Redis%E4%B8%AD%E7%9A%84%E5%93%88%E5%B8%8C%E8%A1%A8/" class="title has-link-black-ter is-size-6 has-text-weight-normal">Redis中的哈希表</a>
                     <p class="is-size-7 is-uppercase">
-                        
+                        <a class="has-link-grey -link" href="/categories/Redis/">Redis</a>
                     </p>
                 </div>
             </div>
@@ -833,6 +872,25 @@
             </div>
         </article>
         
+        <article class="media">
+            
+            <a href="/2019/10/26/HTML%E5%9F%BA%E7%A1%80/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="HTML基础">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-26T09:21:12.446Z">2019-10-26</time></div>
+                    <a href="/2019/10/26/HTML%E5%9F%BA%E7%A1%80/" class="title has-link-black-ter is-size-6 has-text-weight-normal">HTML基础</a>
+                    <p class="is-size-7 is-uppercase">
+                        <a class="has-link-grey -link" href="/categories/HTML%E5%9F%BA%E7%A1%80/">HTML基础</a>
+                    </p>
+                </div>
+            </div>
+        </article>
+        
     </div>
 </div>
     
@@ -850,7 +908,7 @@
                     <span class="level-item">十月 2019</span>
                 </span>
                 <span class="level-end">
-                    <span class="level-item tag">30</span>
+                    <span class="level-item tag">29</span>
                 </span>
             </a>
         </li>
@@ -892,7 +950,7 @@
                 <div class="control">
                     <a class="tags has-addons" href="/tags/Redis/">
                         <span class="tag">Redis</span>
-                        <span class="tag is-grey">1</span>
+                        <span class="tag is-grey">3</span>
                     </a>
                 </div>
                 
