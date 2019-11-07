@@ -8,18 +8,19 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-<title>Python中和数字相关的数据类型 - 想和你一起看下雨</title>
+<title>Django的使用 - 想和你一起看下雨</title>
 
 
-    <meta name="description" content="Python中和数字相关的数据类型：int、float、bool、complex，也讲到随机数的部分">
+    <meta name="description" content="##Django的使用(投票应用) 没有python项目的时候1.在没有中文路径下创建一个Django文件 12django-admin startproject 项目名# 没有Django就安装Django">
+<meta name="keywords" content="Django">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Python中和数字相关的数据类型">
-<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;10&#x2F;26&#x2F;Python%E4%B8%AD%E5%92%8C%E6%95%B0%E5%AD%97%E7%9B%B8%E5%85%B3%E7%9A%84%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B&#x2F;index.html">
+<meta property="og:title" content="Django的使用">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;06&#x2F;Django%E7%9A%84%E4%BD%BF%E7%94%A8(%E6%8A%95%E7%A5%A8%E5%BA%94%E7%94%A8)&#x2F;index.html">
 <meta property="og:site_name" content="想和你一起看下雨">
-<meta property="og:description" content="Python中和数字相关的数据类型：int、float、bool、complex，也讲到随机数的部分">
+<meta property="og:description" content="##Django的使用(投票应用) 没有python项目的时候1.在没有中文路径下创建一个Django文件 12django-admin startproject 项目名# 没有Django就安装Django">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;og_image.png">
-<meta property="og:updated_time" content="2019-10-26T02:38:54.514Z">
+<meta property="og:updated_time" content="2019-11-07T03:32:26.480Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http:&#x2F;&#x2F;yoursite.com&#x2F;images&#x2F;og_image.png">
 
@@ -79,7 +80,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/logo_panda.png" alt="Python中和数字相关的数据类型" height="28">
+                <img src="/images/logo_panda.png" alt="Django的使用" height="28">
             
             </a>
         </div>
@@ -135,17 +136,17 @@
         
         <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
             <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-10-26T02:33:56.448Z">2019-10-26</time>
+                <time class="level-item has-text-grey" datetime="2019-11-06T03:43:21.000Z">2019-11-06</time>
                 
                 <div class="level-item">
-                <a class="has-link-grey -link" href="/categories/python%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/">python语言基础</a>
+                <a class="has-link-grey -link" href="/categories/Django/">Django</a>
                 </div>
                 
                 
                 <span class="level-item has-text-grey">
                     
                     
-                    3 分钟 读完 (大约 519 个字)
+                    10 分钟 读完 (大约 1458 个字)
                 </span>
                 
                 
@@ -154,37 +155,131 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                Python中和数字相关的数据类型
+                Django的使用
             
         </h1>
         <div class="content">
-            <p>Python中和数字相关的数据类型：int、float、bool、complex，也讲到随机数的部分</p>
+            <p>##Django的使用(投票应用)</p>
+<h3 id="没有python项目的时候"><a href="#没有python项目的时候" class="headerlink" title="没有python项目的时候"></a>没有python项目的时候</h3><p>1.在没有中文路径下创建一个Django文件</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">django-admin startproject 项目名</span><br><span class="line"># 没有Django就安装Django</span><br></pre></td></tr></table></figure>
+
 <a id="more"></a>
-<p>#####1.Python中和数字相关的数据类型有：</p>
-<p>######int、float、bool、complex</p>
-<p>1.int(整型)：</p>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">数字中所有整数对应的类型，例如：23, 58, 100</span><br></pre></td></tr></table></figure>
-<p>2.float(浮点型)：</p>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">生活中所有小数对应的类型，例如：2.3, 0.22, 2.666, 2.2e100</span><br></pre></td></tr></table></figure>
-<p>3.bool(布尔)：</p>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">只有True和False两个值；True本质就是数字1，False本质就是数字0</span><br></pre></td></tr></table></figure>
-<p>4.complex(复数):</p>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">包含所有的复数，形如a + bj的数就是复数，j 是虚数单位,j**2 == -1</span><br><span class="line">10+1j  3-5j 注意：虚部的1不能不写！</span><br></pre></td></tr></table></figure>
-<p>#####2.数据类型相关方法</p>
-<p>1.type(数据) —获取数据的类型</p>
-<p>2.isinstance(数据，类型)—判断指定数据是否是指定类型，返回布尔值。</p>
-<p>3.数据类型转换:    类型（数据）—-将数据转换成指定类型</p>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">result = int(2.3)</span><br><span class="line">print(result, type(result))</span><br><span class="line"># -----取整数</span><br><span class="line"></span><br><span class="line">result = float(2)</span><br><span class="line">print(result, type(result))</span><br><span class="line"># -----加.0</span><br><span class="line"></span><br><span class="line">&quot;&quot;&quot;</span><br><span class="line">任何数据类型的数据都能转换为bool类型，所有为零或为空的数据</span><br><span class="line">(包括None)都会转换为False,其他全为True。</span><br><span class="line">bool(数据)</span><br><span class="line">&quot;&quot;&quot;</span><br></pre></td></tr></table></figure>
-<p>#####3.随机数</p>
-<p>随机挑选</p>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 随机挑选</span><br><span class="line">random.choice(序列) ---在序列中随机返回一个数据。</span><br><span class="line">range(M,N,step_size) ---从M开始,每次+step_size,直到N-1为止</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 随机浮点数</span><br><span class="line">random.random()  ---随机返回0~1的浮点数</span><br><span class="line">random.random()*100  ---随机返回0~100的浮点数</span><br><span class="line">random.random()*10 + 10  ---随机返回10~20的浮点数</span><br></pre></td></tr></table></figure>
-<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># 打乱顺序</span></span><br><span class="line">list1 = [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>,<span class="hljs-number">4</span>,<span class="hljs-number">5</span>,<span class="hljs-number">6</span>,<span class="hljs-number">7</span>,<span class="hljs-number">8</span>,<span class="hljs-number">9</span>]</span><br><span class="line">random.shuffle(list)  <span class="hljs-comment"># --将序列中的元素随机排列(序列必须是可变的)</span></span><br><span class="line">print(list1)</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># 随机浮点数</span><br><span class="line">result = random.uniform(10,60) # 产生[10,60]的随机浮点数，10和60都能取到</span><br><span class="line">print(result)</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 随机整数</span><br><span class="line"># random.randint(1,10)  -- 产生[1~10]的随机整数，1和10都能取到</span><br></pre></td></tr></table></figure>
-<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-comment"># 猜数字游戏</span></span><br><span class="line"><span class="hljs-keyword">import</span> random</span><br><span class="line">num = random.randint(<span class="hljs-number">1</span>, <span class="hljs-number">101</span>)</span><br><span class="line">sum1 = <span class="hljs-number">10</span></span><br><span class="line"><span class="hljs-keyword">while</span> <span class="hljs-literal">True</span>:</span><br><span class="line">    <span class="hljs-keyword">if</span> sum1 == <span class="hljs-number">0</span>:</span><br><span class="line">        print(<span class="hljs-string">'机会用完了，抱歉，你失败了！'</span>)</span><br><span class="line">        <span class="hljs-keyword">break</span></span><br><span class="line">    <span class="hljs-keyword">else</span>:</span><br><span class="line">        print(<span class="hljs-string">'你有%d次机会'</span> % sum1)</span><br><span class="line">        play_num = int(input(<span class="hljs-string">'please input a number:'</span>))</span><br><span class="line">        <span class="hljs-keyword">if</span> play_num == num:</span><br><span class="line">            print(<span class="hljs-string">'success!'</span>)</span><br><span class="line">            <span class="hljs-keyword">break</span></span><br><span class="line">        <span class="hljs-keyword">else</span>:</span><br><span class="line">            sum1 -= <span class="hljs-number">1</span></span><br><span class="line">            <span class="hljs-keyword">if</span> play_num &lt; num:</span><br><span class="line">                print(<span class="hljs-string">'the number is small!'</span>)</span><br><span class="line">            <span class="hljs-keyword">else</span>:</span><br><span class="line">                print(<span class="hljs-string">'the number is big!'</span>)</span><br></pre></td></tr></table></figure>
 
 
+<p>2.进入项目文件安装虚拟环境</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cd 项目名</span><br><span class="line"># 确定安装好了virtualenv</span><br><span class="line">python -m venv venv</span><br><span class="line">或者用</span><br><span class="line">which python3 / which python # 查找python/python3的所在路径</span><br><span class="line">virtualenv --python=/usr/local/bin/python3</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">配置全局的豆瓣镜像</span><br><span class="line">Windows下：</span><br><span class="line">cd  //进入用户主目录</span><br><span class="line">mkdir pip //创建一个pip的文件夹</span><br><span class="line">cd pip //进入pip文件夹  </span><br><span class="line">touch pip.ini //创建一个空文件</span><br><span class="line">vim pip.ini //编辑pip.ini文件</span><br><span class="line">加入以下命令保存即可</span><br><span class="line">[global]</span><br><span class="line">index-url=https://pypi.doubanio.com/simple</span><br><span class="line"></span><br><span class="line">Mac下：</span><br><span class="line">创建的目录为.pip</span><br><span class="line">文件名为pip.conf</span><br><span class="line">其他的都一样</span><br></pre></td></tr></table></figure>
+
+<p>3.激活虚拟环境</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">. venv/bin/activate  #虚拟机或苹果下的命令</span><br><span class="line">. venv/Scripts/activate  # windows下的命令</span><br></pre></td></tr></table></figure>
+
+<p>4.下载安装依赖项，完成Django项目的准备工作</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pip install django pymysql</span><br><span class="line">pip freeze &gt; requirements.txt # 将安装的依赖项写入文件</span><br></pre></td></tr></table></figure>
+
+<h3 id="有python项目的时候"><a href="#有python项目的时候" class="headerlink" title="有python项目的时候"></a>有python项目的时候</h3><p>1.安装依赖项</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install django==2.1.13 pymysql</span><br></pre></td></tr></table></figure>
+
+<p>2.创建Django项目(注意在最后加一个点！！！)</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">django-admin startproject 项目名 .</span><br></pre></td></tr></table></figure>
+
+<p>3.其他的和上面没有python项目的一致</p>
+<h3 id="从仓库克隆项目"><a href="#从仓库克隆项目" class="headerlink" title="从仓库克隆项目"></a>从仓库克隆项目</h3><p>1.克隆项目</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone 仓库地址</span><br></pre></td></tr></table></figure>
+
+<p>2.进入项目文件夹</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd 文件夹</span><br></pre></td></tr></table></figure>
+
+<p>3.创建虚拟环境</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">virtualenv --python=指定python的路径</span><br></pre></td></tr></table></figure>
+
+<p>4.激活虚拟环境</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">. venv/Scripts/activate   /  . venv/bin/activate</span><br></pre></td></tr></table></figure>
+
+<p>5.安装依赖项</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install -r requirements.txt</span><br></pre></td></tr></table></figure>
+
+<p>###没有仓库的时候</p>
+<p>1.创建本地仓库，进入文件</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br></pre></td></tr></table></figure>
+
+<p>2.创建.gitignore说明不需要版本控制的文件</p>
+<p>3.编辑文件将不需要的文件的名字放入文件</p>
+<p>4.提交到本地缓存</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br></pre></td></tr></table></figure>
+
+<p>5.查看缓存区状态</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git status</span><br></pre></td></tr></table></figure>
+
+<p>6.提交到本地仓库</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit -m &apos;文档说明&apos;</span><br></pre></td></tr></table></figure>
+
+<p>7.查看提交日志</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git log  -graph -online</span><br></pre></td></tr></table></figure>
+
+<p>8.绑定远端仓库</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 查看是否绑定仓库</span><br><span class="line">git remote -v</span><br><span class="line"># 绑定仓库</span><br><span class="line">git remote add origin 仓库链接</span><br></pre></td></tr></table></figure>
+
+<p>9.向远端仓库推送代码</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push -u origin master # master是指定推送的分支</span><br></pre></td></tr></table></figure>
+
+<p>10.强推分支</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">确保推送的分支不是保护分支</span><br><span class="line">然后输入</span><br><span class="line">git push 最后加上--force</span><br></pre></td></tr></table></figure>
+
+<p>11.推送时发生冲突</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">push代码时，自己的工作成果和团队其他成员发生冲突时(CONFLICT),需要先通过git pull从远程仓库同步到本地。</span><br><span class="line">检查用冲突的代码(git diff)，接下来通过当面提交沟通解决冲突，然后重新本地提交，再push到远程仓库</span><br></pre></td></tr></table></figure>
+
+
+
+<hr>
+<p>1.创建模板文件夹 templates</p>
+<p>2.配置项目文件的settings.py</p>
+<figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">配置数据库和模板的位置</span><br><span class="line">连接数据库</span><br><span class="line">DATABASES = &#123;</span><br><span class="line">    <span class="hljs-string">'default'</span>: &#123;</span><br><span class="line">        <span class="hljs-string">'ENGINE'</span>: <span class="hljs-string">'django.db.backends.mysql'</span>,</span><br><span class="line">        <span class="hljs-comment"># 数据库的名字</span></span><br><span class="line">        <span class="hljs-string">'NAME'</span>: <span class="hljs-string">'django1905'</span>,</span><br><span class="line">        <span class="hljs-string">'HOST'</span>: <span class="hljs-string">'121.199.31.146'</span>,</span><br><span class="line">        <span class="hljs-string">'PORT'</span>: <span class="hljs-string">'3306'</span>,</span><br><span class="line">        <span class="hljs-string">'USER'</span>: <span class="hljs-string">'root'</span>,</span><br><span class="line">        <span class="hljs-string">'PASSWORD'</span>: <span class="hljs-string">'123456'</span>,</span><br><span class="line">        <span class="hljs-comment"># 默认字符集</span></span><br><span class="line">        <span class="hljs-string">'CHARSET'</span>: <span class="hljs-string">'utf8'</span>,</span><br><span class="line">        <span class="hljs-comment"># 时区</span></span><br><span class="line">        <span class="hljs-string">'TIME_ZONE'</span>: <span class="hljs-string">'Asia/Chongqing'</span></span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>3.配置项目文件的初始文件（init）中加上以下代码</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">import pymysql</span><br><span class="line"></span><br><span class="line">pymysql.install_as_MySQLdb()</span><br></pre></td></tr></table></figure>
+
+<p>4.创建应用</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">在命令行输入</span><br><span class="line">python manage.py startapp 应用名</span><br></pre></td></tr></table></figure>
+
+<p>5.创建模型 - 在models.py文件中</p>
+<p>6.迁移（正向工程）</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 生成迁移</span><br><span class="line">python manage.py makemigrations 应用名</span><br><span class="line"># 执行迁移</span><br><span class="line">python manage.py migrate</span><br></pre></td></tr></table></figure>
+
+<p>6.迁移（反向工程）</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python manage.py inspectdb &gt; 应用名/models.py</span><br></pre></td></tr></table></figure>
+
+<p>7.通过后台管理模型 应用的admin.py文件写入</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># 创建一个类来管理</span><br><span class="line">class SubjectAdmin(admin.ModelAdmin):</span><br><span class="line">	# 指定显示的类容</span><br><span class="line">    list_display = (&apos;no&apos;, &apos;name&apos;, &apos;intro&apos;, &apos;is_hot&apos;)</span><br><span class="line">    # 指定可搜索的项目</span><br><span class="line">    search_fields = (&apos;name&apos;, &apos;intro&apos;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">admin.site.register(Subject,SubjectAdmin)</span><br></pre></td></tr></table></figure>
+
+<p>8.新建管理员账号</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># 命令行输入</span><br><span class="line">python manage.py createsuperuser</span><br></pre></td></tr></table></figure>
+
+<p>9.在管理员界面查看模型</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">在admin.py中加入</span><br><span class="line">from polls.models import Subject,Teacher</span><br><span class="line"></span><br><span class="line"># 创建一个类来管理</span><br><span class="line">class SubjectAdmin(admin.ModelAdmin):</span><br><span class="line">	# 显示的内容</span><br><span class="line">    list_display = (&apos;no&apos;, &apos;name&apos;, &apos;intro&apos;, &apos;is_hot&apos;)</span><br><span class="line">    # 可通过以下关键词查找</span><br><span class="line">    search_fields = (&apos;name&apos;, &apos;intro&apos;)</span><br><span class="line">    </span><br><span class="line">admin.site.register(Subject, SubjectAdmin)</span><br></pre></td></tr></table></figure>
+
+<p>10.在总目录下新建一个文件夹templates，用来放HTML文件</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">这个HTML文件下写视图部分</span><br></pre></td></tr></table></figure>
+
+<p>11.在控制器(views.py)文件下获取数据库的内容，传给HTML文件</p>
+<figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">from django.shortcuts import render</span><br><span class="line"></span><br><span class="line"># Create your views here.</span><br><span class="line">from polls.models import Subject</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def index(request):</span><br><span class="line">	# 导入模板，用object.all()来获取所有数据</span><br><span class="line">	# order_by(&apos;-is_hot&apos;)代表排序依据，此处依据是is_hot</span><br><span class="line">    subjects = Subject.objects.all().order_by(&apos;-is_hot&apos;)</span><br><span class="line"></span><br><span class="line">    return render(request, &apos;subjects.html&apos;, &#123;</span><br><span class="line">        &apos;subjects&apos;: subjects</span><br><span class="line">    &#125;)</span><br></pre></td></tr></table></figure>
+
+<p>12.添加URL,在urls.py文件中添加path页</p>
+<h3 id="MVC架构-—-gt-MTV架构（Django中）"><a href="#MVC架构-—-gt-MTV架构（Django中）" class="headerlink" title="MVC架构 —&gt;MTV架构（Django中）"></a><strong>MVC架构 —&gt;MTV架构（Django中）</strong></h3><figure class="highlight plain hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">MVC - 架构模式（架构理念）- 模型（数据）-视图（显示）-控制器（桥梁）</span><br><span class="line">    ~ 目标：模型跟视图解耦合，数据和显示分离</span><br><span class="line">    ~ 放之四海而皆准的理念，只要软件系统稍具规模就会使用这样的架构</span><br><span class="line"></span><br><span class="line">MTV - 模型-模板-视图</span><br><span class="line">    ~ 视图（控制器）：Python函数，接收用户的请求并给用户以响应</span><br><span class="line">        - 参数：HttpRequest</span><br><span class="line">        - 返回值：HttpResponse(字节串/字符串, content_type=&apos;...&apos;)</span><br><span class="line">    ~ 模板（视图）：呈现给用户看的东西，静态页 ---&gt; 模板页（指令、占位符）</span><br><span class="line">        - 通过settings.py配置模板页的路径</span><br><span class="line">        - 通过render函数对模板页进行渲染</span><br><span class="line">            ~ 第一个参数：HttpRequest对象</span><br><span class="line">            ~ 第二个参数：模板页的名字</span><br><span class="line">            ~ 第三个参数：渲染到模板页上的数据（字典）</span><br><span class="line">    ~ 模型（数据）：数据持久化</span><br><span class="line">        - 继承Model创建模型类</span><br><span class="line">        - 修改settings.py中的DATABASES配置</span><br><span class="line">        - pip install pymysql</span><br><span class="line">        - pymysql.install_as_MySQLdb()</span><br><span class="line">        - python manage.py makemigrations polls</span><br><span class="line">        - python manage.py migrate</span><br></pre></td></tr></table></figure>
+
+<h3 id="Django后台管理模型"><a href="#Django后台管理模型" class="headerlink" title="Django后台管理模型"></a>Django后台管理模型</h3><h4 id="1-创建Django超级管理员权限"><a href="#1-创建Django超级管理员权限" class="headerlink" title="1.创建Django超级管理员权限"></a>1.创建Django超级管理员权限</h4><p><code>python  manage.py  createsuperuser</code></p>
+<h4 id="2-登录admin网页"><a href="#2-登录admin网页" class="headerlink" title="2.登录admin网页"></a>2.登录admin网页</h4><p>Django管理员账号、密码</p>
+<p>注意：登录后并不能看见自己创建的模型，还需要到应用下models.py中配置文件</p>
+<h4 id="3-配置models-py文件"><a href="#3-配置models-py文件" class="headerlink" title="3.配置models.py文件"></a>3.配置models.py文件</h4><figure class="highlight python hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Meta</span>:</span></span><br><span class="line">    db_table = <span class="hljs-string">'tb_fruit'</span></span><br><span class="line">    <span class="hljs-comment"># 添加显示水果属性</span></span><br><span class="line">    verbose_name = <span class="hljs-string">'水果'</span></span><br><span class="line">    verbose_name_plural = <span class="hljs-string">'水果'</span></span><br></pre></td></tr></table></figure>
+        </div>
+        
+        <div class="level is-size-7 is-uppercase">
+            <div class="level-start">
+                <div class="level-item">
+                    <span class="is-size-6 has-text-grey has-mr-7">#</span>
+                    <a class="has-link-grey -link" href="/tags/Django/" rel="tag">Django</a>
+                </div>
+            </div>
         </div>
         
         
@@ -232,17 +327,10 @@
 <div class="card card-transparent">
     <div class="level post-navigation is-flex-wrap is-mobile">
         
-        <div class="level-start">
-            <a class="level level-item has-link-grey  article-nav-prev" href="/2019/10/26/continue%E5%92%8Cbreak%E5%92%8C%E4%B8%89%E7%9B%AE%E8%BF%90%E7%AE%97%E7%AC%A6/">
-                <i class="level-item fas fa-chevron-left"></i>
-                <span class="level-item">continue和break和三目运算符</span>
-            </a>
-        </div>
-        
         
         <div class="level-end">
-            <a class="level level-item has-link-grey  article-nav-next" href="/2019/10/26/%E5%88%86%E6%94%AF%E5%92%8C%E5%BE%AA%E7%8E%AF/">
-                <span class="level-item">分支和循环</span>
+            <a class="level level-item has-link-grey  article-nav-next" href="/2019/11/02/Redis%E4%B8%AD%E7%9A%84%E6%9C%89%E5%BA%8F%E5%88%97%E8%A1%A8/">
+                <span class="level-item">Redis中的有序集合</span>
                 <i class="level-item fas fa-chevron-right"></i>
             </a>
         </div>
@@ -258,8 +346,8 @@
         
 <script>
     var disqus_config = function () {
-        this.page.url = 'http://yoursite.com/2019/10/26/Python%E4%B8%AD%E5%92%8C%E6%95%B0%E5%AD%97%E7%9B%B8%E5%85%B3%E7%9A%84%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/';
-        this.page.identifier = '2019/10/26/Python中和数字相关的数据类型/';
+        this.page.url = 'http://yoursite.com/2019/11/06/Django%E7%9A%84%E4%BD%BF%E7%94%A8(%E6%8A%95%E7%A5%A8%E5%BA%94%E7%94%A8)/';
+        this.page.identifier = '2019/11/06/Django的使用(投票应用)/';
     };
     (function() {
         var d = document, s = d.createElement('script');  
@@ -1004,7 +1092,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/logo_panda.png" alt="Python中和数字相关的数据类型" height="28">
+                    <img src="/images/logo_panda.png" alt="Django的使用" height="28">
                 
                 </a>
                 <p class="is-size-7">
